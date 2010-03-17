@@ -1,3 +1,3 @@
-<h2>Ativitec</h2>
+Ativitec
 
-<h3>O Ativitec é uma sistema para controlar as atividades desenvolvidas pelos técnicos em uma fábrica de Software. Ele é implementado em Ruby on Rails e utiliza base de dados(atualmente SQlite3), mas vai funcionar em PostgreSQL, MySQL e outros(Pelo menos é o que eu espero).</h3>
+O Ativitec é uma sistema para controlar as atividades desenvolvidas pelos técnicos em uma fábrica de Software. Ele é implementado em Ruby on Rails e utiliza base de dados(atualmente SQlite3), mas vai funcionar em PostgreSQL, MySQL e outros(Pelo menos é o que eu espero).
