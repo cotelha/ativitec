@@ -1,0 +1,48 @@
+<p>
+  <b>Nm cliente:</b>
+  <%=h @cliente.nm_cliente %>
+</p>
+
+<p>
+  <b>Endereco:</b>
+  <%=h @cliente.endereco %>
+</p>
+
+<p>
+  <b>Fone:</b>
+  <%=h @cliente.fone %>
+</p>
+
+<p>
+  <b>Cidade:</b>
+  <%=h @cliente.cidade %>
+</p>
+
+<p>
+  <b>Estado:</b>
+  <%=h @cliente.estado %>
+</p>
+
+<p>
+  <b>Cep:</b>
+  <%=h @cliente.cep %>
+</p>
+
+<p>
+  <b>Cnpj:</b>
+  <%=h @cliente.cnpj %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @cliente.email %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @cliente.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_cliente_path(@cliente) %> |
+<%= link_to 'Back', clientes_path %>
