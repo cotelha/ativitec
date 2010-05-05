@@ -1,0 +1,20 @@
+<h1>Lista Usuarios</h1>
+
+<table width="100%">
+  <tr>
+    <th width="70%" style="text-align:left">Nome</th>
+    <th>Ações</th>
+  </tr>
+<% @users.each do |user| %>
+  <tr>
+    <td><%=h user.login %></td>
+    <td align="center"><%= link_to 'Mostrar', user %>
+    <%= link_to 'Editar', edit_user_path(user) %>
+    <%= link_to 'Excluir', user, :confirm => 'Tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Novo usuario', signup_path %>

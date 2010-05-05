@@ -1,36 +1,25 @@
-<h1>Listing clientes</h1>
-
-<table>
+<table width="100%" border="0">
   <tr>
-    <th>Nm cliente</th>
-    <th>Endereco</th>
-    <th>Fone</th>
-    <th>Cidade</th>
-    <th>Estado</th>
-    <th>Cep</th>
-    <th>Cnpj</th>
-    <th>Email</th>
-    <th>Status</th>
+    <th style="text-align:left">Nm cliente</th>
+    <th style="text-align:left" width="20%">Fone</th>
+    <th style="text-align:left" width="25%">Email</th>
+    <th style="text-align:left" width="5%">Status</th>
+    <th width="25%">Ações</th>
   </tr>
 
 <% @clientes.each do |cliente| %>
   <tr>
-    <td><%=h cliente.nm_cliente %></td>
-    <td><%=h cliente.endereco %></td>
+    <td><%=h cliente.nm_cliente %></td>  
     <td><%=h cliente.fone %></td>
-    <td><%=h cliente.cidade %></td>
-    <td><%=h cliente.estado %></td>
-    <td><%=h cliente.cep %></td>
-    <td><%=h cliente.cnpj %></td>
     <td><%=h cliente.email %></td>
-    <td><%=h cliente.status %></td>
-    <td><%= link_to 'Show', cliente %></td>
-    <td><%= link_to 'Edit', edit_cliente_path(cliente) %></td>
-    <td><%= link_to 'Destroy', cliente, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= if cliente.status then "ATIVO" else "INATIVO" end %></td>
+    <td align="center"><%= link_to 'Exibir', cliente %>
+    <%= link_to 'Editar', edit_cliente_path(cliente) %>
+    <%= link_to 'Excluir', cliente, :confirm => 'Tem certeza?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New cliente', new_cliente_path %>
+<%= link_to 'Novo cliente', new_cliente_path %>
