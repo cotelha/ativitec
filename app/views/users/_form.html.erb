@@ -1,0 +1,23 @@
+<% @user.password = @user.password_confirmation = nil %>
+<%#= error_messages_for :user %>
+<%= f.error_messages %>
+<br>
+
+<p><%= label_tag 'login' %><br/>
+<%= f.text_field :login %></p>
+
+<p><%= label_tag 'email' %><br/>
+<%= f.text_field :email %></p>
+
+<p><%= label_tag 'password' %><br/>
+<%= f.password_field :password %></p>
+
+<p><%= label_tag 'password_confirmation', 'Confirm Password' %><br/>
+<%= f.password_field :password_confirmation %></p>
+
+<p><%= label_tag 'tp_user', 'Tipo usuário' %><br/>
+<%= select_tag "user[tp_user]", options_for_select([ ["TÉCNICO","T"], ["ADMNISTRAÇÃO","A"] ], @user.tp_user) %></p>
+<br>
+<p><%= submit_tag 'Gravar' %></p>
+<br>
+<%= link_to 'Voltar', users_path %>

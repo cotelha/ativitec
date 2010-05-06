@@ -54,7 +54,7 @@ end
 
   def update
     @user = User.find(params[:id])
-
+    
     respond_to do |format|
       if @user.update_attributes(params[:user])
         flash[:notice] = 'Usuário atualizado com sucesso.'

@@ -1,6 +1,14 @@
 <p>
-  <b>Nm cliente:</b>
+  <b>Login:</b>
   <%=h @user.login %>
+</p>
+<p>
+  <b>Email:</b>
+  <%=h @user.email%>
+</p>
+<p>
+  <b>Tipo usuário:</b>
+  <%= if @user.tp_user=="A" then "Administrador" else "Técnico" end %>
 </p>
 
 <%= link_to 'Editar', edit_user_path(@user) %> |
