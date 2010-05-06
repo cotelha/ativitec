@@ -1,0 +1,14 @@
+<% form_for(@user) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :login %><br />
+    <%= f.text_field :login %>
+  </p>
+    <p>
+    <%= f.submit 'atualizar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Mostrar', @user %> |
+<%= link_to 'Voltar', users_path %>
