@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :atividades
+
   map.resources :projetos
 
   map.resources :clientes

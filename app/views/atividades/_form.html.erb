@@ -1,0 +1,29 @@
+<%= f.error_messages %>
+  <p>
+    <%= f.label :nm_atividade %><br />
+    <%= f.text_field :nm_atividade %>
+  </p>
+  <p>
+    <%= f.label :tp_atividade %><br />
+    <%= f.text_field :tp_atividade %>
+  </p>
+  <p>
+    <%= f.label :exibe_projeto %><br />
+    <%= f.check_box :exibe_projeto %>
+  </p>
+  <p>
+    <%= f.label :icone_atividade %><br />
+    <%= f.text_field :icone_atividade %>
+  </p>
+  <p>
+    <%= f.label :nr_ordem %><br />
+    <%= f.text_field :nr_ordem %>
+  </p>
+  <p>
+    <%= f.label :exibe_prev_termino %><br />
+    <%= f.check_box :exibe_prev_termino %>
+  </p>
+  <p>
+    <%= f.submit 'Criar' %>
+  </p>
+  <%= link_to 'Voltar', atividades_path %>

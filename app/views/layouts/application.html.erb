@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title><%=controller.controller_name%></title>
+  <%= stylesheet_link_tag 'scaffold' %>
+  <%= stylesheet_link_tag 'projeto' %>
+</head>
+<body>
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<div id=wrap>
+	<div id=header-wrapper>
+    	<div id=header>
+            <div id=headerleft>
+                <div id=headerleft class="headerleft section">
+                    <div id=Header1 class="widget Header">
+                        <div id=header-inner>
+                            <%= render :partial => "shared/cabecalho" %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+	<div style="CLEAR: both"></div>
+
+    <div id=homepage-wrapper>
+
+        <div id=navigation-wrapper>
+          <div id=navHeader>
+                <ul id=menu>
+                  <%= render :partial => "shared/menu" %>
+                </ul>
+              <span class=spacer></span>
+            </div>
+        </div>
+
+        <div style="CLEAR: both"></div>
+
+        <div id=outer-wrapper>
+            <div id=wrap2>
+                <div id=content-wrapper>
+                    <div id=mainarea-wrapper>
+                        <div id=centerbar-wrapper-list>
+                        	<%= yield %>
+                        </div>
+                        <div id=bottombar-wrapper></div>
+                    </div>
+                </div>
+            </div>
+	</div>
+
+        <div class=clear></div>
+
+        <div id=footer_wrap>
+            <div id=footer>
+                <%= render :partial => "shared/rodape" %>
+            </div>
+        </div>
+    </div> <!-- end homepage-wrapper -->
+</div> <!-- end wrap -->
+
+</body>
+</html>

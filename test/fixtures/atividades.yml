@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nm_atividade: MyString
+  tp_atividade: MyString
+  exibe_projeto: false
+  icone_atividade: MyString
+  nr_ordem: 1
+  exibe_prev_termino: 
+
+two:
+  nm_atividade: MyString
+  tp_atividade: MyString
+  exibe_projeto: false
+  icone_atividade: MyString
+  nr_ordem: 1
+  exibe_prev_termino: 

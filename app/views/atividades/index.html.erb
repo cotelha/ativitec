@@ -1,0 +1,31 @@
+<h1>Listing atividades</h1>
+
+<table>
+  <tr>
+    <th>Nm atividade</th>
+    <th>Tp atividade</th>
+    <th>Exibe projeto</th>
+    <th>Icone atividade</th>
+    <th>Nr ordem</th>
+    <th>Exibe prev termino</th>
+    <th>Ação</th>
+  </tr>
+
+<% @atividades.each do |atividade| %>
+  <tr>
+    <td><%=h atividade.nm_atividade %></td>
+    <td><%=h atividade.tp_atividade %></td>
+    <td><%=h atividade.exibe_projeto %></td>
+    <td><%=h atividade.icone_atividade %></td>
+    <td><%=h atividade.nr_ordem %></td>
+    <td><%=h atividade.exibe_prev_termino %></td>
+    <td><%= link_to 'Exibir', atividade %>
+    <%= link_to 'Editar', edit_atividade_path(atividade) %>
+    <%= link_to 'Excluir', atividade, :confirm => 'Tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nova atividade', new_atividade_path %>

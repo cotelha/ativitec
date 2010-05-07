@@ -1,14 +1,15 @@
 <table>
   <tr>
     <th>Nm projeto</th>
+    <th>Ações</th>
   </tr>
 
 <% @projetos.each do |projeto| %>
   <tr>
     <td><%=h projeto.nm_projeto %></td>
-    <td><%= link_to 'Exibir', projeto %></td>
-    <td><%= link_to 'Editar', edit_projeto_path(projeto) %></td>
-    <td><%= link_to 'Excluir', projeto, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Exibir', projeto %>
+    <%= link_to 'Editar', edit_projeto_path(projeto) %>
+    <%= link_to 'Excluir', projeto, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

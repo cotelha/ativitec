@@ -1,0 +1,33 @@
+<p>
+  <b>Nm atividade:</b>
+  <%=h @atividade.nm_atividade %>
+</p>
+
+<p>
+  <b>Tp atividade:</b>
+  <%=h @atividade.tp_atividade %>
+</p>
+
+<p>
+  <b>Exibe projeto:</b>
+  <%=h @atividade.exibe_projeto %>
+</p>
+
+<p>
+  <b>Icone atividade:</b>
+  <%=h @atividade.icone_atividade %>
+</p>
+
+<p>
+  <b>Nr ordem:</b>
+  <%=h @atividade.nr_ordem %>
+</p>
+
+<p>
+  <b>Exibe prev termino:</b>
+  <%=h @atividade.exibe_prev_termino %>
+</p>
+
+
+<%= link_to 'Editar', edit_atividade_path(@atividade) %> |
+<%= link_to 'Voltar', atividades_path %>
