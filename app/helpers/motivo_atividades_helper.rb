@@ -1,0 +1,2 @@
+module MotivoAtividadesHelper
+end

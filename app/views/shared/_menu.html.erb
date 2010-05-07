@@ -1,9 +1,19 @@
+<ul id=menu>
 <li class=<%= if controller.controller_name=="defaults" then "navSelected" else "cat-item" end %>><a href="/defaults"><span>Home</span></a> </li>
 <li class=<%= if controller.controller_name=="users" then "navSelected" else "cat-item" end %>><a href="/users" title="Listar Usuários"><span>Usuários</span></a> </li>
 <li class=<%= if controller.controller_name=="clientes" then "navSelected" else "cat-item" end %>><a href="/clientes" title="Listar Clientes"><span>Clientes</span></a> </li>
 <li class=<%= if controller.controller_name=="projetos" then "navSelected" else "cat-item" end %>><a href="/projetos" title="Listar Projetos"><span>Projetos</span></a> </li>
-<li class=<%= if controller.controller_name=="atividades" then "navSelected" else "cat-item" end %>><a href="/atividades" title="Listar Atividades"><span>Atividades</span></a> </li>
+<li class=<%= if controller.controller_name=="atividades" || controller.controller_name=="motivo_atividades" then "navSelected" else "cat-item" end %>><a href="/atividades" title="Listar Atividades"><span>Atividades</span></a> </li>
 <li class=<%= if controller.controller_name=="relatorios" then "navSelected" else "cat-item" end %>><a href="/relatorios" title="Gerar Relatórios"><span>Relatórios</span></a> </li>
 <li class=<%= if controller.controller_name=="graficos" then "navSelected" else "cat-item" end %>><a href="/graficos" title="Gerar Gráficos"><span>Gráficos</span></a> </li>
 <li class=<%= if controller.controller_name=="backups" then "navSelected" else "cat-item" end %>><a href="/backups" title="Gerar Backup"><span>Backup</span></a> </li>
 <li class=cat-item><a href="/logout" title="Logout"><span>Logout</span></a></li>
+</ul>
+<% if controller.controller_name=="atividades" || controller.controller_name=="motivo_atividades" then %>
+<div id=subMenu>
+<ul style="top: 46px; left:20px">
+  <li><a href="/motivo_atividades" style="width: 230px;"><span>CADASTRAR MOTIVOS ATIVIDADES</span></a></li>
+</ul>
+</div>
+<span class="spacer"></span>
+<% end %>

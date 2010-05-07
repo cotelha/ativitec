@@ -1,0 +1,23 @@
+<h1>Listing motivo_atividades</h1>
+
+<table>
+  <tr>
+    <th>Nm motivo</th>
+    <th>Atividade</th>
+    <th>Ações</th>
+  </tr>
+
+<% @motivo_atividades.each do |motivo_atividade| %>
+  <tr>
+    <td><%=h motivo_atividade.nm_motivo %></td>
+    <td><%=h motivo_atividade.atividade.nm_atividade %></td>
+    <td><%= link_to 'Exibir', motivo_atividade %>
+    <%= link_to 'Editar', edit_motivo_atividade_path(motivo_atividade) %>
+    <%= link_to 'Excluir', motivo_atividade, :confirm => 'Tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Novo motivo_atividade', new_motivo_atividade_path %>

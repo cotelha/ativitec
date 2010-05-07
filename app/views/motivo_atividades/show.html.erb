@@ -1,0 +1,13 @@
+<p>
+  <b>Nm motivo:</b>
+  <%=h @motivo_atividade.nm_motivo %>
+</p>
+
+<p>
+  <b>Atividade:</b>
+  <%=h @motivo_atividade.atividade.nm_atividade %>
+</p>
+
+
+<%= link_to 'Editar', edit_motivo_atividade_path(@motivo_atividade) %> |
+<%= link_to 'Voltar', motivo_atividades_path %>

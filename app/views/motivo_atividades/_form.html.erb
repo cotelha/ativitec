@@ -1,0 +1,14 @@
+ <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nm_motivo %><br />
+    <%= f.text_field :nm_motivo %>
+  </p>
+  <p>
+    <%= f.label :atividade %><br />    
+    <%= select("motivo_atividade", "atividade_id", Atividade.all.collect {|p| [ p.nm_atividade, p.id ] }) %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+  <%= link_to 'Voltar', motivo_atividades_path %>
