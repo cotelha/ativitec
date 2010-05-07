@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Clientes: <%= controller.action_name %></title>
+  <title>Clientes</title>
   <%= stylesheet_link_tag 'scaffold' %>
   <%= stylesheet_link_tag 'projeto' %>
 </head>
@@ -40,15 +40,7 @@
         <DIV id=navigation-wrapper>
           <DIV id=navHeader>
                 <UL id=menu>
-                  <LI class=cat-item><A href="index.php"><SPAN>Home</SPAN></A> </LI>
-
-                  <LI class=cat-item><A href="/users" title="Listar Usuários"><SPAN>Usuários</SPAN></A> </LI>
-                  <LI class=navSelected><A href="/clientes" title="Listar Clientes"><SPAN>Clientes</SPAN></A> </LI>
-                  <LI class=cat-item><A href="#" title="Listar Projetos"><SPAN>Projetos</SPAN></A> </LI>
-                  <LI class=cat-item><A href="#" title="Listar Atividades"><SPAN>Atividades</SPAN></A> </LI>
-                  <LI class=cat-item><A href="#" title="Gerar Relatórios"><SPAN>Relatórios</SPAN></A> </LI>
-                  <LI class=cat-item><A href="#" title="Gerar Gráficos"><SPAN>Gráficos</SPAN></A> </LI>
-                  <LI class=cat-item><A href="/logout" title="Logout"><SPAN>Logout</SPAN></A></LI>
+                  <%= render :partial => "shared/menu" %>                  
                 </UL>
                
 
@@ -63,8 +55,7 @@
                 <DIV id=content-wrapper>
                     <DIV id=mainarea-wrapper>
                         <DIV id=centerbar-wrapper-list>
-
-                        	<%= yield %>
+                        	<%= yield %>                          
                         </DIV>
                         <DIV id=bottombar-wrapper></DIV>
                     </DIV>

@@ -1,0 +1,42 @@
+<%= f.error_messages %>
+
+  <p>
+    <%= f.label :nm_cliente %><br />
+    <%= f.text_field :nm_cliente %>
+  </p>
+  <p>
+    <%= f.label :endereco %><br />
+    <%= f.text_field :endereco %>
+  </p>
+  <p>
+    <%= f.label :fone %><br />
+    <%= f.text_field :fone %>
+  </p>
+  <p>
+    <%= f.label :cidade %><br />
+    <%= f.text_field :cidade %>
+  </p>
+  <p>
+    <%= f.label :estado %><br />
+    <%= f.text_field :estado %>
+  </p>
+  <p>
+    <%= f.label :cep %><br />
+    <%= f.text_field :cep %>
+  </p>
+  <p>
+    <%= f.label :cnpj %><br />
+    <%= f.text_field :cnpj %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.check_box :status %>
+  </p>
+  <p>
+    <%= f.submit 'Criar' %>
+  </p>
+  <%= link_to 'Voltar', clientes_path %>
