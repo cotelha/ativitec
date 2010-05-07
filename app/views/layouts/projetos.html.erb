@@ -19,20 +19,13 @@
                 <DIV id=headerleft class="headerleft section">
                     <DIV id=Header1 class="widget Header">
                         <DIV id=header-inner>
-                            <DIV class=titlewrapper>
-
-                            	<H1 class=title>Ativitec</H1>
-                            </DIV>
-                            <DIV class=descriptionwrapper>
-                            	<P class=description><SPAN>Gestão do Trabalho</SPAN></P>
-                            </DIV>
+                            <%= render :partial => "shared/cabecalho" %>
                         </DIV>
                     </DIV>
                 </DIV>
-
             </DIV>
         </DIV>
-    </DIV>
+        </DIV>
 	<DIV style="CLEAR: both"></DIV>
 
     <DIV id=homepage-wrapper>
@@ -69,8 +62,7 @@
 
         <DIV id=footer_wrap>
             <DIV id=footer>
-                <P id=footerLogo class=right>Ativitec</P>
-                <DIV class=spacer></DIV>
+                <%= render :partial => "shared/rodape" %>
             </DIV>
         </DIV>
     </DIV> <!-- end homepage-wrapper -->
