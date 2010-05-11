@@ -19,21 +19,20 @@
                 <div id=headerleft class="headerleft section">
                     <div id=Header1 class="widget Header">
                         <div id=header-inner>
-                            <%= render :partial => "shared/cabecalho" %>
+				<%= render :partial => "shared/cabecalho" %>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
-
+    </div>
 	<div style="CLEAR: both"></div>
 
     <div id=homepage-wrapper>
 
         <div id=navigation-wrapper>
-          <div id=navHeader>                
-                  <%= render :partial => "shared/menu" %>               
+          <div id=navHeader>
+                <%= render :partial => "shared/menu" %>
           </div>
         </div>
 
@@ -42,21 +41,15 @@
         <div id=outer-wrapper>
             <div id=wrap2>
                 <div id=content-wrapper>
-                    <div id=mainarea-wrapper>
-                        <div id=centerbar-wrapper-list>
-                        	<%= yield %>
-                        </div>
-                        <div id=bottombar-wrapper></div>
-                    </div>
+                    <%= yield %>                    
                 </div>
             </div>
-	</div>
+		</div>
 
         <div class=clear></div>
-
         <div id=footer_wrap>
             <div id=footer>
-                <%= render :partial => "shared/rodape" %>
+		<%= render :partial => "shared/rodape" %>
             </div>
         </div>
     </div> <!-- end homepage-wrapper -->
