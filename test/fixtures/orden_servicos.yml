@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  dt_inicio: 2010-05-10 21:51:22
+  dt_termino: 2010-05-10 21:51:22
+  cliente: 
+  user: 
+  atividade: 
+  txt_descricao: MyText
+  txt_descricao_tecnica: MyText
+  ind_cancelado: MyString
+  nro_prioridade: 1
+  hrs_previsao_termino: 
+  nm_contato: MyString
+  ind_status: MyString
+  motivo_atividades: 
+  projeto: 
+
+two:
+  dt_inicio: 2010-05-10 21:51:22
+  dt_termino: 2010-05-10 21:51:22
+  cliente: 
+  user: 
+  atividade: 
+  txt_descricao: MyText
+  txt_descricao_tecnica: MyText
+  ind_cancelado: MyString
+  nro_prioridade: 1
+  hrs_previsao_termino: 
+  nm_contato: MyString
+  ind_status: MyString
+  motivo_atividades: 
+  projeto: 
