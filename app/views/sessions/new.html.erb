@@ -1,15 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>ATIVITEC</title>
+  <%= stylesheet_link_tag 'scaffold' %>
+  <%= stylesheet_link_tag 'projeto' %>
+</head>
+<body>
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<div id=wrap>
+<br><br>
+  <div id=homepage-wrapper style="width:450px;">
+
+        <div id=navigation-wrapper style="width:440px; padding:5px; text-align:center; font-weight:bold; font-size:14px;">
+             Informe seu usuário e senha e em seguida <br>
+               clique em entrar para acessar o sistema.
+        </div>
+
+        <div style="CLEAR: both"></div>
+
+        <div id=outer-wrapper style="width:450px;">
+            <div id=wrap2>
+                <div id=content-wrapper>
+                    <div id=mainarea-wrapper>
+                        <div id=centerbar-wrapper-list>
 <% form_tag session_path do -%>
-<p><%= label_tag 'login' %><br />
-<%= text_field_tag 'login', @login %></p>
+  <p><%= label_tag 'login' %><br />
+  <%= text_field_tag 'login', @login %></p>
 
-<p><%= label_tag 'password', 'Senha' %><br/>
-<%= password_field_tag 'password', nil %></p>
+  <p><%= label_tag 'password', 'Senha' %><br/>
+  <%= password_field_tag 'password', nil %></p>
 
-<!-- Uncomment this if you want this functionality
-<p><%= label_tag 'remember_me', 'Remember me' %>
-<%= check_box_tag 'remember_me', '1', @remember_me %></p>
--->
+  <!-- Uncomment this if you want this functionality
+  <p><%= label_tag 'remember_me', 'Remember me' %>
+  <%= check_box_tag 'remember_me', '1', @remember_me %></p>
+  -->
 
-<p><%= submit_tag 'Entrar' %></p>
+  <p><%= submit_tag 'Entrar' %></p>
 <% end -%>
+                        </div>
+                        <div id=bottombar-wrapper></div>
+                    </div>
+                </div>
+            </div>
+	</div>
+    </div> <!-- end homepage-wrapper -->
+</div> <!-- end wrap -->
+
+</body>
+</html>
+
