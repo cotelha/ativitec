@@ -7,7 +7,6 @@
 <li class=<%= if controller.controller_name=="relatorios" then "navSelected" else "cat-item" end %>><a href="/relatorios" title="Gerar Relatórios"><span>Relatórios</span></a> </li>
 <li class=<%= if controller.controller_name=="graficos" then "navSelected" else "cat-item" end %>><a href="/graficos" title="Gerar Gráficos"><span>Gráficos</span></a> </li>
 <li class=<%= if controller.controller_name=="backups" then "navSelected" else "cat-item" end %>><a href="/backups" title="Gerar Backup"><span>Backup</span></a> </li>
-<li class=cat-item><a href="/logout" title="Logout"><span>Logout</span></a></li>
 </ul>
 <% if controller.controller_name=="atividades" || controller.controller_name=="motivo_atividades" then %>
 <div id=subMenu>

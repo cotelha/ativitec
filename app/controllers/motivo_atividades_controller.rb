@@ -1,6 +1,8 @@
 class MotivoAtividadesController < ApplicationController
   # GET /motivo_atividades
   # GET /motivo_atividades.xml
+  before_filter :login_required
+  
   def index
     @motivo_atividades = MotivoAtividade.all
 
@@ -44,7 +46,7 @@ class MotivoAtividadesController < ApplicationController
 
     respond_to do |format|
       if @motivo_atividade.save
-        flash[:notice] = 'MotivoAtividade was successfully created.'
+        flash[:notice] = 'Motivo de Atividade cadastrada com sucesso.'
         format.html { redirect_to(@motivo_atividade) }
         format.xml  { render :xml => @motivo_atividade, :status => :created, :location => @motivo_atividade }
       else
@@ -61,7 +63,7 @@ class MotivoAtividadesController < ApplicationController
 
     respond_to do |format|
       if @motivo_atividade.update_attributes(params[:motivo_atividade])
-        flash[:notice] = 'MotivoAtividade was successfully updated.'
+        flash[:notice] = 'Motivo de Atividade atualizada com sucesso.'
         format.html { redirect_to(@motivo_atividade) }
         format.xml  { head :ok }
       else

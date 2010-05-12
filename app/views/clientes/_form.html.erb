@@ -1,11 +1,11 @@
 <%= f.error_messages %>
 
   <p>
-    <%= f.label :nm_cliente %><br />
+    <%= f.label :nm_cliente, "Nome:" %><br />
     <%= f.text_field :nm_cliente %>
   </p>
   <p>
-    <%= f.label :endereco %><br />
+    <%= f.label :endereco, "Endereço:" %><br />
     <%= f.text_field :endereco %>
   </p>
   <p>
@@ -21,11 +21,11 @@
     <%= f.text_field :estado %>
   </p>
   <p>
-    <%= f.label :cep %><br />
+    <%= f.label :cep, "CEP" %><br />
     <%= f.text_field :cep %>
   </p>
   <p>
-    <%= f.label :cnpj %><br />
+    <%= f.label :cnpj, "CNPJ" %><br />
     <%= f.text_field :cnpj %>
   </p>
   <p>
@@ -34,8 +34,9 @@
   </p>
   <p>
     <%= f.label :status %><br />
-    <%= f.check_box :status %>
+    <%= select_tag "cliente[status]", options_for_select([ ["ATIVO",true], ["INATIVO",false] ], @cliente.status) %>
   </p>
+  <br>
   <p>
     <%= f.submit 'Criar' %>
   </p>

@@ -1,6 +1,8 @@
 class AtividadesController < ApplicationController
   # GET /atividades
   # GET /atividades.xml
+  before_filter :login_required
+  
   def index
     @atividades = Atividade.all
 
@@ -44,7 +46,7 @@ class AtividadesController < ApplicationController
 
     respond_to do |format|
       if @atividade.save
-        flash[:notice] = 'Atividade was successfully created.'
+        flash[:notice] = 'Atividade cadastrada com sucesso.'
         format.html { redirect_to(@atividade) }
         format.xml  { render :xml => @atividade, :status => :created, :location => @atividade }
       else
@@ -61,7 +63,7 @@ class AtividadesController < ApplicationController
 
     respond_to do |format|
       if @atividade.update_attributes(params[:atividade])
-        flash[:notice] = 'Atividade was successfully updated.'
+        flash[:notice] = 'Atividade atualizada com sucesso.'
         format.html { redirect_to(@atividade) }
         format.xml  { head :ok }
       else

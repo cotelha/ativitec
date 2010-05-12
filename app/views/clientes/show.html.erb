@@ -1,10 +1,10 @@
 <p>
-  <b>Nm cliente:</b>
+  <b>Nome:</b>
   <%=h @cliente.nm_cliente %>
 </p>
 
 <p>
-  <b>Endereco:</b>
+  <b>Endereço:</b>
   <%=h @cliente.endereco %>
 </p>
 
@@ -24,12 +24,12 @@
 </p>
 
 <p>
-  <b>Cep:</b>
+  <b>CEP:</b>
   <%=h @cliente.cep %>
 </p>
 
 <p>
-  <b>Cnpj:</b>
+  <b>CNPJ:</b>
   <%=h @cliente.cnpj %>
 </p>
 
@@ -40,7 +40,7 @@
 
 <p>
   <b>Status:</b>
-  <%=h @cliente.status %>
+  <%= if @cliente.status then "ATIVO" else "INATIVO" end %>
 </p>
 
 

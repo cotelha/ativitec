@@ -1,6 +1,8 @@
 class ProjetosController < ApplicationController
   # GET /projetos
   # GET /projetos.xml
+  before_filter :login_required
+  
   def index
     @projetos = Projeto.all
 
@@ -44,7 +46,7 @@ class ProjetosController < ApplicationController
 
     respond_to do |format|
       if @projeto.save
-        flash[:notice] = 'Projeto was successfully created.'
+        flash[:notice] = 'Projeto adicionado com sucesso.'
         format.html { redirect_to(@projeto) }
         format.xml  { render :xml => @projeto, :status => :created, :location => @projeto }
       else
@@ -61,7 +63,7 @@ class ProjetosController < ApplicationController
 
     respond_to do |format|
       if @projeto.update_attributes(params[:projeto])
-        flash[:notice] = 'Projeto was successfully updated.'
+        flash[:notice] = 'Projeto atualizado com sucesso.'
         format.html { redirect_to(@projeto) }
         format.xml  { head :ok }
       else

@@ -54,3 +54,40 @@ a:hover { color: #fff; background-color:#000; }
   list-style: square;
 }
 
+
+.msg_error {
+    width:100%;
+    height: 24px;
+    position:absolute;
+    margin-top:-13px;
+}
+
+.msg_error h1 {
+    width:300px;
+    font-family: Arial,sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    background-color:red;
+    color:white;
+    opacity:0.4;
+    padding:5px;
+}
+
+.msg_notice {
+    width:100%;
+    height: 24px;
+    position:absolute;
+    margin-top:-13px;
+}
+
+.msg_notice h1 {
+    width:300px;
+    font-family: Arial,sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    background-color:green;
+    color:white;
+    opacity:0.4;
+    padding:5px;
+    margin-top:13px;
+}

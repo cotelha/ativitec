@@ -1,25 +1,21 @@
-<h1>Listing atividades</h1>
-
-<table>
+<table width="100%" border="0" style="text-align:left">
   <tr>
-    <th>Nm atividade</th>
-    <th>Tp atividade</th>
-    <th>Exibe projeto</th>
-    <th>Icone atividade</th>
+    <th>Nome</th>
+    <th>Tipo</th>
+    <th>Exibe projeto</th>    
     <th>Nr ordem</th>
     <th>Exibe prev termino</th>
-    <th>Ação</th>
+    <th style="text-align:center">Ação</th>
   </tr>
 
 <% @atividades.each do |atividade| %>
   <tr>
     <td><%=h atividade.nm_atividade %></td>
-    <td><%=h atividade.tp_atividade %></td>
-    <td><%=h atividade.exibe_projeto %></td>
-    <td><%=h atividade.icone_atividade %></td>
+    <td><%= if atividade.tp_atividade=="T" then "TRABALHO" else "DESCANSO" end %></td>
+    <td><%= if atividade.exibe_projeto then "SIM" else "NÃO" end %></td>
     <td><%=h atividade.nr_ordem %></td>
-    <td><%=h atividade.exibe_prev_termino %></td>
-    <td><%= link_to 'Exibir', atividade %>
+    <td><%= if atividade.exibe_prev_termino then "SIM" else "NÃO" end %></td>
+    <td style="widows:15%; text-align:center"><%= link_to 'Exibir', atividade %>
     <%= link_to 'Editar', edit_atividade_path(atividade) %>
     <%= link_to 'Excluir', atividade, :confirm => 'Tem certeza?', :method => :delete %></td>
   </tr>

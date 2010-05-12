@@ -1,15 +1,15 @@
 <%= f.error_messages %>
   <p>
-    <%= f.label :nm_atividade %><br />
+    <%= f.label :nm_atividade, "Nome" %><br />
     <%= f.text_field :nm_atividade %>
   </p>
   <p>
-    <%= f.label :tp_atividade %><br />
-    <%= f.text_field :tp_atividade %>
+    <%= f.label :tp_atividade, "Tipo" %><br />
+    <%= select_tag "atividade[tp_atividade]", options_for_select([ ["TRABALHO","T"], ["DESCANSO","D"] ], @atividade.tp_atividade) %>
   </p>
-  <p>
+   <p>
     <%= f.label :exibe_projeto %><br />
-    <%= f.check_box :exibe_projeto %>
+    <%= select_tag "atividade[exibe_projeto]", options_for_select([ ["SIM",true], ["NÃO",false] ], @atividade.exibe_projeto) %>
   </p>
   <p>
     <%= f.label :icone_atividade %><br />
@@ -21,7 +21,7 @@
   </p>
   <p>
     <%= f.label :exibe_prev_termino %><br />
-    <%= f.check_box :exibe_prev_termino %>
+    <%= select_tag "atividade[exibe_prev_termino]", options_for_select([ ["SIM",true], ["NÃO",false] ], @atividade.exibe_prev_termino) %>
   </p>
   <p>
     <%= f.submit 'Criar' %>

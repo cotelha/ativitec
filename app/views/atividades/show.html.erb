@@ -1,16 +1,16 @@
 <p>
-  <b>Nm atividade:</b>
+  <b>Nome:</b>
   <%=h @atividade.nm_atividade %>
 </p>
 
 <p>
-  <b>Tp atividade:</b>
-  <%=h @atividade.tp_atividade %>
+  <b>Tipo:</b>
+  <%= if @atividade.tp_atividade=="T" then "TRABALHO" else "DESCANÇO" end %>
 </p>
 
 <p>
   <b>Exibe projeto:</b>
-  <%=h @atividade.exibe_projeto %>
+  <%= if @atividade.exibe_projeto then "SIM" else "NÃO" end %>
 </p>
 
 <p>
@@ -25,7 +25,7 @@
 
 <p>
   <b>Exibe prev termino:</b>
-  <%=h @atividade.exibe_prev_termino %>
+  <%= if @atividade.exibe_prev_termino then "SIM" else "NÃO" end %>
 </p>
 
 

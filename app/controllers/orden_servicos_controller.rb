@@ -1,6 +1,8 @@
 class OrdenServicosController < ApplicationController
   # GET /orden_servicos
   # GET /orden_servicos.xml
+  before_filter :login_required
+  
   def index
     @orden_servicos = OrdenServico.all
 
