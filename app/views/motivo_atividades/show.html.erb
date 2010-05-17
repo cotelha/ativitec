@@ -8,6 +8,4 @@
   <%=h @motivo_atividade.atividade.nm_atividade %>
 </p>
 
-
-<%= link_to 'Editar', edit_motivo_atividade_path(@motivo_atividade) %> |
-<%= link_to 'Voltar', motivo_atividades_path %>
+<%= link_to 'Editar', edit_motivo_atividade_path(@motivo_atividade), :class=>"linque_editar" %> <%= link_to 'Voltar', motivo_atividades_path, :class=>"linque_voltar" %>

@@ -1,11 +1,10 @@
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :nm_projeto %><br />
-    <%= f.text_field :nm_projeto %>
-  </p>
-  <p>
-    <%= f.submit 'Criar' %>
-  </p>
-
-<%= link_to 'Voltar', projetos_path %>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="font-weight: bold;">
+  <tr>
+    <td><%= f.label :nm_projeto, "Nome" %></td>
+  </tr>
+  <tr>
+    <td><%= f.text_field :nm_projeto %><div id="erro_projeto" style="color:white; background-color:red; width:295px; padding-left:5px"><%= @projeto.errors.on(:nm_projeto).to_a.join("<br>") %></div></td>
+  </tr>
+</table>
+<br>
+<%= f.submit 'Gravar', :class=> "botao_salvar" %> <%= link_to 'Voltar', projetos_path, :class=>"linque_voltar" %>

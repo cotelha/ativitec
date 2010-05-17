@@ -1,29 +1,30 @@
-<%= f.error_messages %>
-  <p>
-    <%= f.label :nm_atividade, "Nome" %><br />
-    <%= f.text_field :nm_atividade %>
-  </p>
-  <p>
-    <%= f.label :tp_atividade, "Tipo" %><br />
-    <%= select_tag "atividade[tp_atividade]", options_for_select([ ["TRABALHO","T"], ["DESCANSO","D"] ], @atividade.tp_atividade) %>
-  </p>
-   <p>
-    <%= f.label :exibe_projeto %><br />
-    <%= select_tag "atividade[exibe_projeto]", options_for_select([ ["SIM",true], ["NÃO",false] ], @atividade.exibe_projeto) %>
-  </p>
-  <p>
-    <%= f.label :icone_atividade %><br />
-    <%= f.text_field :icone_atividade %>
-  </p>
-  <p>
-    <%= f.label :nr_ordem %><br />
-    <%= f.text_field :nr_ordem %>
-  </p>
-  <p>
-    <%= f.label :exibe_prev_termino %><br />
-    <%= select_tag "atividade[exibe_prev_termino]", options_for_select([ ["SIM",true], ["NÃO",false] ], @atividade.exibe_prev_termino) %>
-  </p>
-  <p>
-    <%= f.submit 'Criar' %>
-  </p>
-  <%= link_to 'Voltar', atividades_path %>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="font-weight: bold;">
+  <tr>
+    <td><%= f.label :nm_atividade, "Nome" %></td>
+    <td><%= f.label :tp_atividade, "Tipo" %></td>
+  </tr>
+  <tr>
+    <td valign="top"><%= f.text_field :nm_atividade %><div id="erro_projeto" style="color:white; background-color:red; width:295px; padding-left:5px"><%= @atividade.errors.on(:nm_atividade).to_a.join("<br>") %></div></td>
+    <td valign="top"><%= select_tag "atividade[tp_atividade]", options_for_select([ ["TRABALHO","T"], ["DESCANSO","D"] ], @atividade.tp_atividade) %></td>
+  </tr>
+
+  <tr>
+    <td><%= f.label :exibe_projeto %></td>
+    <td><%= f.label :icone_atividade %></td>
+  </tr>
+  <tr>
+    <td valign="top"><%= select_tag "atividade[exibe_projeto]", options_for_select([ ["SIM",true], ["NÃO",false] ], @atividade.exibe_projeto) %></td>
+    <td valign="top"><%= f.text_field :icone_atividade %></td>
+  </tr>
+
+  <tr>
+    <td><%= f.label :nr_ordem %></td>
+    <td><%= f.label :exibe_prev_termino %></td>
+  </tr>
+  <tr>
+    <td valign="top"><%= f.text_field :nr_ordem %></td>
+    <td valign="top"><%= select_tag "atividade[exibe_prev_termino]", options_for_select([ ["SIM",true], ["NÃO",false] ], @atividade.exibe_prev_termino) %></td>
+  </tr>
+</table>
+<br>
+<%= f.submit 'Gravar', :class=>"botao_salvar" %> <%= link_to 'Voltar', atividades_path, :class=>"linque_voltar" %>

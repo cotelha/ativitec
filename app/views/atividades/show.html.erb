@@ -28,6 +28,4 @@
   <%= if @atividade.exibe_prev_termino then "SIM" else "NÃO" end %>
 </p>
 
-
-<%= link_to 'Editar', edit_atividade_path(@atividade) %> |
-<%= link_to 'Voltar', atividades_path %>
+<%= link_to 'Editar', edit_atividade_path(@atividade), :class=>"linque_editar" %> <%= link_to 'Voltar', atividades_path, :class=>"linque_voltar" %>

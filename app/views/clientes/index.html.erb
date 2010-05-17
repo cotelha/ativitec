@@ -1,14 +1,14 @@
-<table width="100%" border="0">
+<table width="100%" class="linhasAlternadas" border="0">
   <tr>
-    <th style="text-align:left">Nome</th>
-    <th style="text-align:left" width="20%">Fone</th>
-    <th style="text-align:left" width="25%">Email</th>
-    <th style="text-align:left" width="5%">Status</th>
-    <th width="25%">Ações</th>
+    <th>NOME</th>
+    <th width="15%">FONE</th>
+    <th width="25%">EMAIL</th>
+    <th width="15%">STATUS</th>
+    <th width="150px" style="text-align:center">AÇÕES</th>
   </tr>
 <% @clientes.each do |cliente| %>
   <tr>
-    <td><%=h cliente.nm_cliente %></td>  
+    <td><%=h cliente.nm_cliente %></td>
     <td><%=h cliente.fone %></td>
     <td><%=h cliente.email %></td>
     <td><%= if cliente.status then "ATIVO" else "INATIVO" end %></td>
@@ -19,6 +19,4 @@
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'Novo cliente', new_cliente_path %>
+<%= link_to 'Novo cliente', new_cliente_path, :class=>"linque_criar" %>

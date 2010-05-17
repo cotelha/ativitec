@@ -1,11 +1,11 @@
-<table width="100%" border="0" style="text-align:left">
+<table width="100%" class="linhasAlternadas">
   <tr>
     <th>Nome</th>
     <th>Tipo</th>
-    <th>Exibe projeto</th>    
+    <th>Exibe projeto</th>
     <th>Nr ordem</th>
     <th>Exibe prev termino</th>
-    <th style="text-align:center">Ação</th>
+    <th width="150px" style="text-align:center">Ação</th>
   </tr>
 
 <% @atividades.each do |atividade| %>
@@ -22,6 +22,4 @@
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'Nova atividade', new_atividade_path %>
+<%= link_to 'Nova atividade', new_atividade_path, :class=>"linque_criar" %>

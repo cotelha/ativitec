@@ -1,18 +1,17 @@
-<table width="100%">
+<table width="100%" class="linhasAlternadas">
   <tr>
-    <th width="70%" style="text-align:left">Nome</th>
-    <th>Ações</th>
+    <th>LOGIN</th>
+    <th>TIPO</th>
+    <th width="150px" style="text-align:center">AÇÕES</th>
   </tr>
 <% @users.each do |user| %>
   <tr>
     <td><%=h user.login %></td>
+    <td><%= if user.tp_user=="A" then "ADMINISTRADOR" else "TÉCNICO" end %></td>
     <td align="center"><%= link_to 'Exibir', user %>
     <%= link_to 'Editar', edit_user_path(user) %>
     <%= link_to 'Excluir', user, :confirm => 'Tem certeza?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'Novo usuario', signup_path %>
+<%= link_to 'Novo usuario', signup_path, :class=>"linque_criar" %>

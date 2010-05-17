@@ -1,4 +1,4 @@
-<p>
+<p> 
   <b>Login:</b>
   <%=h @user.login %>
 </p>
@@ -11,5 +11,4 @@
   <%= if @user.tp_user=="A" then "Administrador" else "Técnico" end %>
 </p>
 
-<%= link_to 'Editar', edit_user_path(@user) %> |
-<%= link_to 'Voltar', users_path %>
+<%= link_to 'Editar', edit_user_path(@user), :class=>"linque_editar" %> <%= link_to 'Voltar', users_path, :class=>"linque_voltar" %>

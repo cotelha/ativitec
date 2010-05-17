@@ -1,7 +1,6 @@
 <p>
-  <b>Nm projeto:</b>
+  <b>Nome:</b>
   <%=h @projeto.nm_projeto %>
 </p>
 
-<%= link_to 'Editar', edit_projeto_path(@projeto) %> |
-<%= link_to 'Voltar', projetos_path %>
+<%= link_to 'Editar', edit_projeto_path(@projeto), :class=>"linque_editar" %> <%= link_to 'Voltar', projetos_path, :class=>"linque_voltar" %>

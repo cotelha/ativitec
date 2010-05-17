@@ -1,23 +1,27 @@
 <% @user.password = @user.password_confirmation = nil %>
-<%#= error_messages_for :user %>
-<%= f.error_messages %>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="font-weight: bold;">
+  <tr>
+    <td><%= label_tag 'login' %></td>
+    <td><%= label_tag 'email' %></td>
+  </tr>
+  <tr>
+    <td valign="top"><%= f.text_field :login, :tabindex=>1 %><div id="erro_projeto" style="color:white; background-color:red; width:295px; padding-left:5px"><%= @user.errors.on(:login).to_a.join("<br>") %></div></td>
+    <td valign="top"><%= f.text_field :email, :tabindex=>1 %><div id="erro_projeto" style="color:white; background-color:red; width:295px; padding-left:5px"><%= @user.errors.on(:email).to_a.join("<br>") %></div></td>
+  </tr>
+  <tr>
+    <td><%= label_tag 'password', 'Senha' %></td>
+    <td><%= label_tag 'tp_user', 'Tipo usuário' %></td>
+  </tr>
+  <tr>
+    <td valign="top"><%= f.password_field :password, :tabindex=>1 %><div id="erro_projeto" style="color:white; background-color:red; width:295px; padding-left:5px"><%= @user.errors.on(:password).to_a.join("<br>") %></div></td>
+    <td valign="top"><%= select_tag "user[tp_user]", options_for_select([ ["TÉCNICO","T"], ["ADMINISTRADOR","A"] ], @user.tp_user), :tabindex=>2 %></td>
+  </tr>
+  <tr>
+    <td><%= label_tag 'password_confirmation', 'Confirma Senha' %></td>
+  </tr>
+  <tr>
+    <td valign="top"><%= f.password_field :password_confirmation, :tabindex=>1 %></td>
+  </tr>
+</table>
 <br>
-
-<p><%= label_tag 'login' %><br/>
-<%= f.text_field :login %></p>
-
-<p><%= label_tag 'email' %><br/>
-<%= f.text_field :email %></p>
-
-<p><%= label_tag 'password' %><br/>
-<%= f.password_field :password %></p>
-
-<p><%= label_tag 'password_confirmation', 'Confirm Password' %><br/>
-<%= f.password_field :password_confirmation %></p>
-
-<p><%= label_tag 'tp_user', 'Tipo usuário' %><br/>
-<%= select_tag "user[tp_user]", options_for_select([ ["TÉCNICO","T"], ["ADMNISTRAÇÃO","A"] ], @user.tp_user) %></p>
-<br>
-<p><%= submit_tag 'Gravar' %></p>
-<br>
-<%= link_to 'Voltar', users_path %>
+<%= submit_tag 'Gravar', :class=>"botao_salvar" %> <%= link_to 'Voltar', users_path, :class=>"linque_voltar" %>

@@ -1,43 +1,44 @@
-<%= f.error_messages %>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="font-weight: bold;">
+  <tr>
+    <td><%= f.label :nm_cliente, "Nome" %></td>
+    <td><%= f.label :endereco, "Endereço" %></td>
+  </tr>
+  <tr>
+    <td valign="top"><%= f.text_field :nm_cliente %><div id="erro_projeto" style="color:white; background-color:red; width:295px; padding-left:5px"><%= @cliente.errors.on(:nm_cliente).to_a.join("<br>") %></div></td>
+    <td valign="top"><%= f.text_field :endereco %></td>
+  </tr>
+  
+  <tr>
+    <td><%= f.label :fone %></td>
+    <td><%= f.label :cidade %></td>
+  </tr>
+  <tr>
+    <td valign="top"><%= f.text_field :fone %></td>
+    <td valign="top"><%= f.text_field :cidade %></td>
+  </tr>
 
-  <p>
-    <%= f.label :nm_cliente, "Nome:" %><br />
-    <%= f.text_field :nm_cliente %>
-  </p>
-  <p>
-    <%= f.label :endereco, "Endereço:" %><br />
-    <%= f.text_field :endereco %>
-  </p>
-  <p>
-    <%= f.label :fone %><br />
-    <%= f.text_field :fone %>
-  </p>
-  <p>
-    <%= f.label :cidade %><br />
-    <%= f.text_field :cidade %>
-  </p>
-  <p>
-    <%= f.label :estado %><br />
-    <%= f.text_field :estado %>
-  </p>
-  <p>
-    <%= f.label :cep, "CEP" %><br />
-    <%= f.text_field :cep %>
-  </p>
-  <p>
-    <%= f.label :cnpj, "CNPJ" %><br />
-    <%= f.text_field :cnpj %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :status %><br />
-    <%= select_tag "cliente[status]", options_for_select([ ["ATIVO",true], ["INATIVO",false] ], @cliente.status) %>
-  </p>
-  <br>
-  <p>
-    <%= f.submit 'Criar' %>
-  </p>
-  <%= link_to 'Voltar', clientes_path %>
+  <tr>
+    <td><%= f.label :estado %></td>
+    <td><%= f.label :cep, "CEP" %></td>
+  </tr>
+  <tr>
+    <td valign="top"><%= f.text_field :estado %></td>
+    <td valign="top"><%= f.text_field :cep %></td>
+  </tr>
+
+  <tr>
+    <td><%= f.label :cnpj, "CNPJ" %></td>
+    <td><%= f.label :email %></td>
+  </tr>
+  <tr>
+    <td valign="top"><%= f.text_field :cnpj %></td>
+    <td valign="top"><%= f.text_field :email %><div id="erro_projeto" style="color:white; background-color:red; width:295px; padding-left:5px"><%= @cliente.errors.on(:email).to_a.join("<br>") %></div></td>  </tr>
+  <tr>
+    <td><%= f.label :status %></td>
+  </tr>
+  <tr>
+    <td valign="top"><%= select_tag "cliente[status]", options_for_select([ ["ATIVO",true], ["INATIVO",false] ], @cliente.status) %></td>
+  </tr>
+</table>
+<br>
+<%= f.submit 'Gravar', :class=>"botao_salvar" %>  <%= link_to 'Voltar', clientes_path, :class=>"linque_voltar" %>

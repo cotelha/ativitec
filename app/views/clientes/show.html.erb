@@ -43,6 +43,4 @@
   <%= if @cliente.status then "ATIVO" else "INATIVO" end %>
 </p>
 
-
-<%= link_to 'Editar', edit_cliente_path(@cliente) %> |
-<%= link_to 'Voltar', clientes_path %>
+<%= link_to 'Editar', edit_cliente_path(@cliente), :class=>"linque_editar" %> <%= link_to 'Voltar', clientes_path, :class=>"linque_voltar" %>
