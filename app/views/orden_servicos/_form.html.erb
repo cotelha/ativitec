@@ -1,0 +1,46 @@
+<table width="100%" border="0">
+  <tr>
+    <td><%= f.label :nm_contato %></td>
+  </tr>
+  <tr>
+    <td><%= f.text_field :nm_contato %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :txt_descricao %></td>
+  </tr>
+  <tr>
+    <td><%= f.text_area :txt_descricao, :cols => 50, :rows => 10 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :motivo_atividades %></td>
+  </tr>
+  <tr>
+    <td><%= f.text_field :motivo_atividades %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :cliente %></td>
+  </tr>
+  <tr>
+    <td><%= f.text_field :cliente %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :projeto %></td>
+  </tr>
+  <tr>
+    <td><%= f.text_field :projeto %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :user %></td>
+  </tr>
+  <tr>
+    <td><%= f.text_field :user %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :hrs_previsao_termino %></td>
+  </tr>
+  <tr>
+    <td><%= f.text_field :hrs_previsao_termino %></td>
+  </tr>  
+</table>  
+<%= f.submit 'Gravar', :class=>"botao_salvar" %>
+  

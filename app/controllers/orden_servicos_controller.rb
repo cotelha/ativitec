@@ -4,7 +4,7 @@ class OrdenServicosController < ApplicationController
   before_filter :login_required
   
   def index
-    @orden_servicos = OrdenServico.all
+    @orden_servicos = OrdenServico.find(:all, :conditions=>{:ind_status=>"A", :user_id=>current_user.id})
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +15,7 @@ class OrdenServicosController < ApplicationController
   # GET /orden_servicos/1
   # GET /orden_servicos/1.xml
   def show
-    @orden_servico = OrdenServico.find(params[:id])
+    @orden_servico = OrdenServico.find(params[:id], :conditions=>{:ind_status=>"A", :user_id=>current_user.id})
 
     respond_to do |format|
       format.html # show.html.erb
@@ -36,7 +36,7 @@ class OrdenServicosController < ApplicationController
 
   # GET /orden_servicos/1/edit
   def edit
-    @orden_servico = OrdenServico.find(params[:id])
+    @orden_servico = OrdenServico.find(params[:id], :conditions=>{:ind_status=>"E", :user_id=>current_user.id})
   end
 
   # POST /orden_servicos
@@ -76,7 +76,7 @@ class OrdenServicosController < ApplicationController
   # DELETE /orden_servicos/1
   # DELETE /orden_servicos/1.xml
   def destroy
-    @orden_servico = OrdenServico.find(params[:id])
+    @orden_servico = OrdenServico.find(params[:id], :conditions=>{:ind_status=>"A", :user_id=>current_user.id})
     @orden_servico.destroy
 
     respond_to do |format|

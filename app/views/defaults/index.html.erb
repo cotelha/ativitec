@@ -35,17 +35,13 @@
       <div id=sidebar class="sidebar section">
           <div id=Feed1 class="widget Feed"> <h2>ATIVIDADES</h2>
               <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold">
+                <% @atividades.each do |x| %>
                 <tr>
                   <td height="30" align="center" bgcolor="#EAEAEA">
-                    <a href="inc_programacao.html" title="Programação"> PROGRAMAÇÃO </a>
+                    <%= link_to x.nm_atividade,"/orden_servicos/new?cod_atividade=#{x.id}", :onclick => "Modalbox.show(this.href, {title: 'Cadastro de Ordens de Serviço', width: 600}); return false;" %>
                   </td>
                 </tr>
-                <tr>
-                  <td height="30" align="center" bgcolor="#F5F5F5">ATIVIDADE EXTERNA</td>
-                </tr>
-                <tr>
-                  <td height="30" align="center" bgcolor="#EAEAEA">MAIS...</td>
-                </tr>
+                <% end %>
               </table>
               <div class=clear></div>
               <span class=widget-item-control><span class="item-control blog-admin"></span></span>

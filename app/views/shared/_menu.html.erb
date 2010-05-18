@@ -19,7 +19,9 @@
 <% if controller.controller_name=="defaults" then %>
 <div id=subMenu>
     <ul style="TOP: 46px">
-        <li><a href="/os_aberta_pendentes" title="OS/ ABERTA / PENDENTE" /> <span>OS/ ABERTA/ PENDENTE</span></a> </li>
+        <li>          
+          <%= link_to "<span>OS/ ABERTA / PENDENTE</span>", "/orden_servicos", :onclick => "Modalbox.show(this.href, {title: 'OS/ ABERTA / PENDENTE', width: 800}); return false;" %>
+        </li>
     </ul>
 </div>
 <% end %>
