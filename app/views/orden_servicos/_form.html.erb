@@ -1,46 +1,44 @@
-<table width="100%" border="0">
+<table width="100%" border="1">
   <tr>
-    <td><%= f.label :nm_contato %></td>
+    <td colspan="2"><%= f.label :nm_contato %></td>
   </tr>
   <tr>
-    <td><%= f.text_field :nm_contato %></td>
+    <td colspan="2"><%= f.text_field :nm_contato %></td>
   </tr>
   <tr>
-    <td><%= f.label :txt_descricao %></td>
+    <td colspan="2"><%= f.label :txt_descricao %></td>
   </tr>
   <tr>
-    <td><%= f.text_area :txt_descricao, :cols => 50, :rows => 10 %></td>
+    <td colspan="2"><%= f.text_area :txt_descricao, :cols => 50, :rows => 8 %></td>
   </tr>
   <tr>
-    <td><%= f.label :motivo_atividades %></td>
+    <td colspan="2"><%= f.label :motivo_atividades %></td>
   </tr>
   <tr>
-    <td><%= f.text_field :motivo_atividades %></td>
+    <td colspan="2"><% MotivoAtividade.all.each do |x| %> <%=radio_button("orden_servico", "motivo_atividades_id", x.id) %> <%=x.nm_motivo%> <% end %></td>
   </tr>
   <tr>
-    <td><%= f.label :cliente %></td>
+    <td colspan="2"><%= f.label :cliente %></td>
   </tr>
   <tr>
-    <td><%= f.text_field :cliente %></td>
+    <td colspan="2"><%= select("orden_servico", "cliente_id", Cliente.all.collect {|p| [ p.nm_cliente, p.id ] }, {:include_blank => true}, :style=>"width: 230px;") %></td>
   </tr>
   <tr>
-    <td><%= f.label :projeto %></td>
+    <td colspan="2"><%= f.label :projeto %></td>
   </tr>
   <tr>
-    <td><%= f.text_field :projeto %></td>
+    <td colspan="2"><%= select("orden_servico", "projeto_id", Projeto.all.collect {|p| [ p.nm_projeto, p.id ] }, {:include_blank => true}, :style=>"width: 230px;") %></td>
   </tr>
   <tr>
-    <td><%= f.label :user %></td>
-  </tr>
-  <tr>
-    <td><%= f.text_field :user %></td>
-  </tr>
-  <tr>
+    <td><%= f.label :user, "Usuário" %></td>
     <td><%= f.label :hrs_previsao_termino %></td>
   </tr>
   <tr>
-    <td><%= f.text_field :hrs_previsao_termino %></td>
-  </tr>  
+    <td><%= select("orden_servico", "user_id", User.all.collect {|p| [ p.login, p.id ] }, {:selected=>session[:user_id]}, :style=>"width: 230px;") %></td>
+    <td><%= f.text_field :hrs_previsao_termino, :size=>5 %></td>
+  </tr>
 </table>  
+<%#= f.submit 'Gravar', :class=>"botao_salvar", :onclick=>"Modalbox.show(this.href, {title: this.title, width: 600}); return false;" %>
 <%= f.submit 'Gravar', :class=>"botao_salvar" %>
+
   

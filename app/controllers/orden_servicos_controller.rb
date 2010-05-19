@@ -2,7 +2,7 @@ class OrdenServicosController < ApplicationController
   # GET /orden_servicos
   # GET /orden_servicos.xml
   before_filter :login_required
-  
+
   def index
     @orden_servicos = OrdenServico.find(:all, :conditions=>{:ind_status=>"A", :user_id=>current_user.id})
 
@@ -42,18 +42,19 @@ class OrdenServicosController < ApplicationController
   # POST /orden_servicos
   # POST /orden_servicos.xml
   def create
-    @orden_servico = OrdenServico.new(params[:orden_servico])
+    @orden_servico = OrdenServico.new(params[:orden_servico])    
 
     respond_to do |format|
       if @orden_servico.save
         flash[:notice] = 'OrdenServico was successfully created.'
         format.html { redirect_to(@orden_servico) }
-        format.xml  { render :xml => @orden_servico, :status => :created, :location => @orden_servico }
+        format.xml  { render :xml => @orden_servico, :status => :created, :location => @orden_servico }        
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @orden_servico.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @orden_servico.errors, :status => :unprocessable_entity }        
       end
     end
+
   end
 
   # PUT /orden_servicos/1

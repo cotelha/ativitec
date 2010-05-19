@@ -1,46 +1,28 @@
-<h1>Listing orden_servicos</h1>
-
-<table>
+<table width="100%" border="0">
   <tr>
-    <th>Dt inicio</th>
-    <th>Dt termino</th>
+    <th></th>
+    <th>ID</th>
     <th>Cliente</th>
-    <th>User</th>
-    <th>Atividade</th>
-    <th>Txt descricao</th>
-    <th>Txt descricao tecnica</th>
-    <th>Ind cancelado</th>
+    <th>Atividade</th>    
     <th>Nro prioridade</th>
     <th>Hrs previsao termino</th>
-    <th>Nm contato</th>
-    <th>Ind status</th>
-    <th>Motivo atividades</th>
+    <th>Contato</th>
+    <th>Ind. status</th>    
     <th>Projeto</th>
   </tr>
-
 <% @orden_servicos.each do |orden_servico| %>
   <tr>
-    <td><%=h orden_servico.dt_inicio %></td>
-    <td><%=h orden_servico.dt_termino %></td>
-    <td><%=h orden_servico.cliente %></td>
-    <td><%=h orden_servico.user %></td>
-    <td><%=h orden_servico.atividade %></td>
-    <td><%=h orden_servico.txt_descricao %></td>
-    <td><%=h orden_servico.txt_descricao_tecnica %></td>
-    <td><%=h orden_servico.ind_cancelado %></td>
+    <td><%= link_to 'Show', orden_servico %>
+        <%= link_to 'Edit', edit_orden_servico_path(orden_servico) %>
+        <%= link_to 'Destroy', orden_servico, :confirm => 'Tem certeza?', :method => :delete %></td>
+    <td><%=h orden_servico.id %></td>
+    <td><%=h orden_servico.cliente %></td>    
+    <td><%=h orden_servico.atividade %></td>    
     <td><%=h orden_servico.nro_prioridade %></td>
     <td><%=h orden_servico.hrs_previsao_termino %></td>
     <td><%=h orden_servico.nm_contato %></td>
-    <td><%=h orden_servico.ind_status %></td>
-    <td><%=h orden_servico.motivo_atividades %></td>
-    <td><%=h orden_servico.projeto %></td>
-    <td><%= link_to 'Show', orden_servico %></td>
-    <td><%= link_to 'Edit', edit_orden_servico_path(orden_servico) %></td>
-    <td><%= link_to 'Destroy', orden_servico, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%=h orden_servico.ind_status %></td>    
+    <td><%=h orden_servico.projeto %></td>    
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New orden_servico', new_orden_servico_path %>
