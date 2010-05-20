@@ -1,9 +1,10 @@
-<table width="100%" border="1">
+<table width="100%" border="0">
   <tr>
     <td colspan="2"><%= f.label :nm_contato %></td>
   </tr>
   <tr>
-    <td colspan="2"><%= f.text_field :nm_contato %></td>
+    <td colspan="2"><%= f.text_field :nm_contato %>
+      <div id="erro_projeto" style="color:white; background-color:red; width:295px; padding-left:5px"><%= @orden_servico.errors.on(:nm_contato).to_a.join("<br>") %></div></td>
   </tr>
   <tr>
     <td colspan="2"><%= f.label :txt_descricao %></td>
@@ -12,10 +13,10 @@
     <td colspan="2"><%= f.text_area :txt_descricao, :cols => 50, :rows => 8 %></td>
   </tr>
   <tr>
-    <td colspan="2"><%= f.label :motivo_atividades %></td>
+    <td colspan="2"><%= f.label :motivo_atividade %></td>
   </tr>
   <tr>
-    <td colspan="2"><% MotivoAtividade.all.each do |x| %> <%=radio_button("orden_servico", "motivo_atividades_id", x.id) %> <%=x.nm_motivo%> <% end %></td>
+    <td colspan="2"><% MotivoAtividade.all.each do |x| %> <%=radio_button("orden_servico", "motivo_atividade_id", x.id) %> <%=x.nm_motivo%> <% end %></td>
   </tr>
   <tr>
     <td colspan="2"><%= f.label :cliente %></td>
@@ -38,7 +39,13 @@
     <td><%= f.text_field :hrs_previsao_termino, :size=>5 %></td>
   </tr>
 </table>  
-<%#= f.submit 'Gravar', :class=>"botao_salvar", :onclick=>"Modalbox.show(this.href, {title: this.title, width: 600}); return false;" %>
-<%= f.submit 'Gravar', :class=>"botao_salvar" %>
+<%#= f.submit 'Gravar', :class=>"botao_salvar", :onclick=>"Modalbox.show(document.form.submit(), {title: this.title, width: 600}); return false;" %>
+<% unless controller.action_name=="edit" then %>
+<input type="submit" onclick="Modalbox.show('/orden_servico_create', {title: 'Form sending status', width: 500, params:Form.serialize('new_orden_servico') }); return false;" value="Send link" class="MB_focusable">
+<% else %>
+<%= f.submit 'Gravar', :class=>"botao_salvar", :onclick=>"Modalbox.show('/orden_servico_up', {title: this.title, width: 600}); return false;" %>
+<% end %>
+
+
 
   

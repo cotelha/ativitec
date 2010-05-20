@@ -1,3 +1,3 @@
-<% form_for(@orden_servico) do |f| %>
+<% form_for(@orden_servico, :html => {:name => "edit_orden_servico"}) do |f| %>
    <%= render :partial => "form",  :locals => { :f => f } %>
 <% end %>

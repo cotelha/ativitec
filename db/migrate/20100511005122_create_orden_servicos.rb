@@ -13,7 +13,7 @@ class CreateOrdenServicos < ActiveRecord::Migration
       t.decimal :hrs_previsao_termino, :precision=>5, :scale=>2
       t.string :nm_contato, :string=>70
       t.string :ind_status, :string=>1
-      t.references :motivo_atividades
+      t.references :motivo_atividade
       t.references :projeto
 
       t.timestamps
