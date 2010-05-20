@@ -1,13 +1,13 @@
-<table width="100%" border="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
-    <td colspan="2"><%= f.label :nm_contato %></td>
+    <td colspan="2"><%= f.label :nm_contato, "Contato" %></td>
   </tr>
   <tr>
     <td colspan="2"><%= f.text_field :nm_contato %>
       <div id="erro_projeto" style="color:white; background-color:red; width:295px; padding-left:5px"><%= @orden_servico.errors.on(:nm_contato).to_a.join("<br>") %></div></td>
   </tr>
   <tr>
-    <td colspan="2"><%= f.label :txt_descricao %></td>
+    <td colspan="2"><%= f.label :txt_descricao, "Descrição" %></td>
   </tr>
   <tr>
     <td colspan="2"><%= f.text_area :txt_descricao, :cols => 50, :rows => 8 %></td>
@@ -32,19 +32,19 @@
   </tr>
   <tr>
     <td><%= f.label :user, "Usuário" %></td>
-    <td><%= f.label :hrs_previsao_termino %></td>
+    <td><%= f.label :hrs_previsao_termino, "Hrs previsão termino" %></td>
   </tr>
   <tr>
     <td><%= select("orden_servico", "user_id", User.all.collect {|p| [ p.login, p.id ] }, {:selected=>session[:user_id]}, :style=>"width: 230px;") %></td>
     <td><%= f.text_field :hrs_previsao_termino, :size=>5 %></td>
   </tr>
 </table>  
-<%#= f.submit 'Gravar', :class=>"botao_salvar", :onclick=>"Modalbox.show(document.form.submit(), {title: this.title, width: 600}); return false;" %>
 <% unless controller.action_name=="edit" then %>
-<input type="submit" onclick="Modalbox.show('/orden_servico_create', {title: 'Form sending status', width: 500, params:Form.serialize('new_orden_servico') }); return false;" value="Send link" class="MB_focusable">
+	<input type="submit" onclick="Modalbox.show('/orden_servico_create', {title: 'Form sending status', width: 500, params:Form.serialize('orden_servico') }); return false;" value="Gravar" class="botao_salvar">
 <% else %>
-<%= f.submit 'Gravar', :class=>"botao_salvar", :onclick=>"Modalbox.show('/orden_servico_up', {title: this.title, width: 600}); return false;" %>
+	<input type="submit" onclick="Modalbox.show('/orden_servico_up/<%=params[:id].to_i%>', {title: 'Form sending status', width: 500, params:Form.serialize('orden_servico') }); return false;" value="Gravar" class="botao_salvar">
 <% end %>
+
 
 
 

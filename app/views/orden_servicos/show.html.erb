@@ -1,3 +1,4 @@
+<!--
 <p>
   <b>Dt inicio:</b>
   <%=h @orden_servico.dt_inicio %>
@@ -7,7 +8,7 @@
   <b>Dt termino:</b>
   <%=h @orden_servico.dt_termino %>
 </p>
-
+-->
 <p>
   <b>Cliente:</b>
   <%=h @orden_servico.cliente %>
@@ -29,21 +30,6 @@
 </p>
 
 <p>
-  <b>Txt descricao tecnica:</b>
-  <%=h @orden_servico.txt_descricao_tecnica %>
-</p>
-
-<p>
-  <b>Ind cancelado:</b>
-  <%=h @orden_servico.ind_cancelado %>
-</p>
-
-<p>
-  <b>Nro prioridade:</b>
-  <%=h @orden_servico.nro_prioridade %>
-</p>
-
-<p>
   <b>Hrs previsao termino:</b>
   <%=h @orden_servico.hrs_previsao_termino %>
 </p>
@@ -51,11 +37,6 @@
 <p>
   <b>Nm contato:</b>
   <%=h @orden_servico.nm_contato %>
-</p>
-
-<p>
-  <b>Ind status:</b>
-  <%=h @orden_servico.ind_status %>
 </p>
 
 <p>
@@ -68,4 +49,5 @@
   <%=h @orden_servico.projeto %>
 </p>
 
-<%= link_to 'Edit', edit_orden_servico_path(@orden_servico), :onclick=>"Modalbox.show(this.href, {title: this.title, width: 600}); return false;", :class=>"linque_editar" %> <%= link_to 'Back', orden_servicos_path, :onclick=>"Modalbox.show(this.href, {title: this.title, width: 600}); return false;", :class=>"linque_voltar" %>
+<%= link_to 'Edit', edit_orden_servico_path(@orden_servico), :onclick=>"Modalbox.show(this.href, {title: this.title, width: 600}); return false;", :class=>"linque_editar" %>
+<%#= link_to 'Back', orden_servicos_path, :onclick=>"Modalbox.show(this.href, {title: this.title, width: 600}); return false;", :class=>"linque_voltar" %>

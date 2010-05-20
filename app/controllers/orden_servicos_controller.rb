@@ -42,7 +42,8 @@ class OrdenServicosController < ApplicationController
   # POST /orden_servicos
   # POST /orden_servicos.xml
   def create
-    @orden_servico = OrdenServico.new(params[:orden_servico])    
+    params[:orden_servico][:ind_status] = "A"
+    @orden_servico = OrdenServico.new(params[:orden_servico])
 
     respond_to do |format|
       if @orden_servico.save
@@ -59,7 +60,7 @@ class OrdenServicosController < ApplicationController
 
   # PUT /orden_servicos/1
   # PUT /orden_servicos/1.xml
-  def update
+  def update    
     @orden_servico = OrdenServico.find(params[:id])
 
     respond_to do |format|

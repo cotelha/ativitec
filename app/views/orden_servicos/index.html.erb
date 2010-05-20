@@ -6,22 +6,20 @@
     <th>Atividade</th>    
     <th>Nro prioridade</th>
     <th>Hrs previsao termino</th>
-    <th>Contato</th>
-    <th>Ind. status</th>    
+    <th>Contato</th>    
     <th>Projeto</th>
   </tr>
 <% @orden_servicos.each do |orden_servico| %>
   <tr>
-    <td><%= link_to 'Show', orden_servico %>
-        <%= link_to 'Edit', edit_orden_servico_path(orden_servico) %>
-        <%= link_to 'Destroy', orden_servico, :confirm => 'Tem certeza?', :method => :delete %></td>
+    <td><%= link_to 'X', orden_servico %>
+        <%= link_to 'Y', edit_orden_servico_path(orden_servico) %>
+        <%= link_to 'D', orden_servico, :confirm => 'Tem certeza?', :method => :delete %></td>
     <td><%=h orden_servico.id %></td>
     <td><%=h orden_servico.cliente %></td>    
     <td><%=h orden_servico.atividade %></td>    
     <td><%=h orden_servico.nro_prioridade %></td>
     <td><%=h orden_servico.hrs_previsao_termino %></td>
-    <td><%=h orden_servico.nm_contato %></td>
-    <td><%=h orden_servico.ind_status %></td>    
+    <td><%=h orden_servico.nm_contato %></td>    
     <td><%=h orden_servico.projeto %></td>    
   </tr>
 <% end %>
