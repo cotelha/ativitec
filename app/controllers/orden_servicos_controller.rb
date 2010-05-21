@@ -47,7 +47,7 @@ class OrdenServicosController < ApplicationController
 
     respond_to do |format|
       if @orden_servico.save
-        flash[:notice] = 'OrdenServico was successfully created.'
+        #flash[:notice] = 'OrdenServico was successfully created.'
         format.html { redirect_to(@orden_servico) }
         format.xml  { render :xml => @orden_servico, :status => :created, :location => @orden_servico }        
       else
@@ -60,16 +60,33 @@ class OrdenServicosController < ApplicationController
 
   # PUT /orden_servicos/1
   # PUT /orden_servicos/1.xml
-  def update    
+  def update
     @orden_servico = OrdenServico.find(params[:id])
 
     respond_to do |format|
       if @orden_servico.update_attributes(params[:orden_servico])        
-        flash[:notice] = 'OrdenServico was successfully updated.'
+        #flash[:notice] = 'OrdenServico was successfully updated.'
         format.html { redirect_to(@orden_servico) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
+        format.xml  { render :xml => @orden_servico.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /orden_servicos/1
+  # PUT /orden_servicos/1.xml
+  def parar
+    @orden_servico = OrdenServico.find(params[:id])
+
+    respond_to do |format|
+      if @orden_servico.update_attribute('ind_status','A')
+        flash[:notice] = 'Orden Servico parada.'
+        format.html { redirect_to defaults_path }
+        format.xml  { head :ok }
+      else
+        format.html { redirect_to defaults_path }
         format.xml  { render :xml => @orden_servico.errors, :status => :unprocessable_entity }
       end
     end
