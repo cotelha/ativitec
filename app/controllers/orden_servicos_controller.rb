@@ -91,6 +91,22 @@ class OrdenServicosController < ApplicationController
     end
   end
 
+  def concluir
+    @orden_servico = OrdenServico.find(params[:id])
+    @orden_servico.os_historicos.create(:user_id => current_user.id, :dt_inicio => Time.now.strftime("%d-%m-%Y %H:%M:%S"))
+
+    respond_to do |format|
+      if @orden_servico.update_attribute('ind_status','C')
+        flash[:notice] = 'Orden Servico concluida.'
+        format.html { redirect_to defaults_path }
+        format.xml  { head :ok }
+      else
+        format.html { redirect_to defaults_path }
+        format.xml  { render :xml => @orden_servico.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
   # PUT /orden_servicos/1
   # PUT /orden_servicos/1.xml
   def parar
