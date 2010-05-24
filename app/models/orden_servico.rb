@@ -7,4 +7,6 @@ class OrdenServico < ActiveRecord::Base
   belongs_to :atividade
   belongs_to :motivo_atividade
   belongs_to :projeto
+
+  has_many :os_historicos
 end

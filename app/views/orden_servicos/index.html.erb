@@ -11,9 +11,11 @@
   </tr>
 <% @orden_servicos.each do |orden_servico| %>
   <tr>
-    <td><%= link_to 'X', orden_servico %>
-        <%= link_to 'Y', edit_orden_servico_path(orden_servico) %>
-        <%= link_to 'D', orden_servico, :confirm => 'Tem certeza?', :method => :delete %></td>
+    <td><%#= link_to 'X', orden_servico %>
+        <%#= link_to 'Y', edit_orden_servico_path(orden_servico) %>
+        <%#= link_to 'D', orden_servico, :confirm => 'Tem certeza?', :method => :delete %>
+        <%= link_to "iniciar", {:controller=>"orden_servicos", :action => "iniciar", :id => orden_servico.id}, :class=>"comment-link", :style=>"PADDING-RIGHT: 10px;" %>
+    </td>
     <td><%=h orden_servico.id %></td>
     <td><%=h orden_servico.cliente %></td>    
     <td><%=h orden_servico.atividade %></td>    

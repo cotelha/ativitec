@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  os: 
+  dt_inicio: 2010-05-23
+  dt_termino: 2010-05-23
+  atividade: 
+  user: 
+
+two:
+  os: 
+  dt_inicio: 2010-05-23
+  dt_termino: 2010-05-23
+  atividade: 
+  user: 

@@ -16,7 +16,7 @@ class CreateOrdenServicos < ActiveRecord::Migration
       t.references :motivo_atividade
       t.references :projeto
 
-      t.timestamps
+      #t.timestamps
     end
   end
 

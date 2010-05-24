@@ -75,10 +75,28 @@ class OrdenServicosController < ApplicationController
     end
   end
 
+  def iniciar
+    @orden_servico = OrdenServico.find(params[:id])
+    @orden_servico.os_historicos.create(:user_id => current_user.id, :dt_inicio => Time.now.strftime("%d-%m-%Y %H:%M:%S"))
+
+    respond_to do |format|
+      if @orden_servico.update_attribute('ind_status','E')
+        flash[:notice] = 'Orden Servico iniciada.'
+        format.html { redirect_to defaults_path }
+        format.xml  { head :ok }
+      else
+        format.html { redirect_to defaults_path }
+        format.xml  { render :xml => @orden_servico.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
   # PUT /orden_servicos/1
   # PUT /orden_servicos/1.xml
   def parar
     @orden_servico = OrdenServico.find(params[:id])
+    b=@orden_servico.os_historicos.find(:first, :conditions => {:dt_termino => nil})    
+    b.update_attribute("dt_termino",Time.now.strftime("%d-%m-%Y %H:%M:%S"))
 
     respond_to do |format|
       if @orden_servico.update_attribute('ind_status','A')
