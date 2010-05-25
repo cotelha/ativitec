@@ -43,6 +43,7 @@ class OrdenServicosController < ApplicationController
   # POST /orden_servicos.xml
   def create
     params[:orden_servico][:ind_status] = "A"
+    params[:orden_servico][:dt_inicio] = Time.now.strftime("%d-%m-%Y %H:%M:%S").to_s
     @orden_servico = OrdenServico.new(params[:orden_servico])
 
     respond_to do |format|
@@ -62,7 +63,7 @@ class OrdenServicosController < ApplicationController
   # PUT /orden_servicos/1.xml
   def update
     @orden_servico = OrdenServico.find(params[:id])
-
+    
     respond_to do |format|
       if @orden_servico.update_attributes(params[:orden_servico])        
         #flash[:notice] = 'OrdenServico was successfully updated.'

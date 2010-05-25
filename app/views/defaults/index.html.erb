@@ -10,10 +10,10 @@
   <div class="blog-posts hfeed">
       <div style="BORDER-BOTTOM: #ddd 1px solid; PADDING-BOTTOM: 10px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; MARGIN-BOTTOM: 2px; BORDER-RIGHT: #ccc 2px solid; PADDING-TOP: 10px">
         <div style="WIDTH: 280px; FLOAT: left">
-          <a href="#"><%=image_tag("arrow_icon.png", :style=>"VERTICAL-ALIGN: middle; MARGIN-RIGHT: 5px")%><%=y.cliente_id%>/ OS <%=y.id%></a>
+          <a href="#"><%=image_tag("arrow_icon.png", :style=>"VERTICAL-ALIGN: middle; MARGIN-RIGHT: 5px")%><%=Cliente.find_by_id(y.cliente_id).nm_cliente%>/ OS <%=y.id%></a>
         </div>
       <div style="WIDTH: 310px; FLOAT: right">
-        <%=image_tag("maintenance_cron_time_icon.jpg", :style=>"VERTICAL-ALIGN: middle; MARGIN-RIGHT: 5px")%>02/11/09 17:25
+        <%=image_tag("maintenance_cron_time_icon.jpg", :style=>"VERTICAL-ALIGN: middle; MARGIN-RIGHT: 5px")%><%=y.dt_inicio.strftime("%d-%m-%Y %H:%M:%S").to_s%>
       <span class=post-comment-link>        
         <%= link_to "parar", {:controller=>"orden_servicos", :action => "parar", :id => y.id}, :class=>"comment-link", :style=>"PADDING-RIGHT: 10px;" %>|
         <%= link_to 'editar', edit_orden_servico_path(y.id), :onclick=>"Modalbox.show(this.href, {title: 'Ordens de Serviço', width: 600}); return false;", :class=>"comment-link", :style=>"PADDING-RIGHT: 10px;" %>|
