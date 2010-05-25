@@ -93,7 +93,8 @@ class OrdenServicosController < ApplicationController
 
   def concluir
     @orden_servico = OrdenServico.find(params[:id])
-    @orden_servico.os_historicos.create(:user_id => current_user.id, :dt_inicio => Time.now.strftime("%d-%m-%Y %H:%M:%S"))
+    b=@orden_servico.os_historicos.find(:first, :conditions => {:dt_termino => nil})
+    b.update_attribute("dt_termino",Time.now.strftime("%d-%m-%Y %H:%M:%S"))
 
     respond_to do |format|
       if @orden_servico.update_attribute('ind_status','C')

@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :relatorios, :only=> [:index,:show]
   map.resources :orden_servicos
   map.signup '/orden_servico_create', :controller => 'orden_servicos', :action => 'create'
   map.signup '/orden_servico_up/:id', :controller => 'orden_servicos', :action => 'update'

@@ -40,3 +40,4 @@ Rails::Initializer.run do |config|
   config.i18n.default_locale = "pt-BR"
 end
 require 'composite_primary_keys'
+require 'will_paginate'
