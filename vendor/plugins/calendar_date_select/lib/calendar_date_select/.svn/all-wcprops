@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/observi/!svn/ver/1602/rails/proxy/trunk/vendor/plugins/calendar_date_select/lib/calendar_date_select
+END
+calendar_date_select.rb
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/observi/!svn/ver/1602/rails/proxy/trunk/vendor/plugins/calendar_date_select/lib/calendar_date_select/calendar_date_select.rb
+END
+form_helpers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/observi/!svn/ver/1602/rails/proxy/trunk/vendor/plugins/calendar_date_select/lib/calendar_date_select/form_helpers.rb
+END
+includes_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/observi/!svn/ver/1602/rails/proxy/trunk/vendor/plugins/calendar_date_select/lib/calendar_date_select/includes_helper.rb
+END
