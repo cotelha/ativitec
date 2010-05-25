@@ -4,7 +4,7 @@ class OrdenServicosController < ApplicationController
   before_filter :login_required
 
   def index
-    @orden_servicos = OrdenServico.find(:all, :conditions=>{:ind_status=>"A", :user_id=>current_user.id})
+    @orden_servicos = OrdenServico.find(:all, :conditions=>{:ind_status=>"A", :user_id=>current_user.id}, :order=>"nro_prioridade DESC")
 
     respond_to do |format|
       format.html # index.html.erb

@@ -12,7 +12,7 @@
                   <td> </td>
                 </tr>
                 <tr>
-                  <td width="25%" align="right"> <b>Status:</b> </td>
+                  <td width="25%" align="right"> </td>
                   <td> </td>
                 </tr>
               </table>
@@ -29,22 +29,11 @@
                 </tr>
               </table>
           </td>
-        </tr>
-        <tr>
-          <td colspan="2">
-            <table width="100%" border="0">
-              <tr>
-                <td width="30%"> <b>Ordena Por:</b> </td>
-                <td> <b>Classifica Por:</b> </td>
-                <td width="35%"> <b>Registros por Pagina:</b> </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
+        </tr>        
       </table>
       <!-- cabecalho da consulta -->
-
-<%= page_entries_info @relatorios %><br><br>
+<br>
+<%= page_entries_info(@relatorios, :entry_name => 'registros').gsub('Displaying','Mostrando').gsub('all','todos') %><br><br>
 <!-- conteudo -->
 
  <table class="linhasAlternadas">

@@ -2,6 +2,7 @@ class MotivoAtividadesController < ApplicationController
   # GET /motivo_atividades
   # GET /motivo_atividades.xml
   before_filter :login_required
+  before_filter :find_atividades, :only => [:new, :edit, :update, :create, :show, :index]
   
   def index
     @motivo_atividades = MotivoAtividade.all
@@ -27,7 +28,7 @@ class MotivoAtividadesController < ApplicationController
   # GET /motivo_atividades/new.xml
   def new
     @motivo_atividade = MotivoAtividade.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @motivo_atividade }
@@ -41,8 +42,19 @@ class MotivoAtividadesController < ApplicationController
 
   # POST /motivo_atividades
   # POST /motivo_atividades.xml
-  def create
+  def create    
     @motivo_atividade = MotivoAtividade.new(params[:motivo_atividade])
+
+    #Atualiza atividades
+    if params.has_key?(:atividades) then
+      @motivo_atividade.atividades = []
+      params[:atividades].each {|g|
+        gr = Atividade.find(g)
+        @motivo_atividade.atividades << gr unless @motivo_atividade.atividades.include?(gr)
+      }
+    else
+      @motivo_atividade.atividades = []
+    end
 
     respond_to do |format|
       if @motivo_atividade.save
@@ -61,8 +73,20 @@ class MotivoAtividadesController < ApplicationController
   def update
     @motivo_atividade = MotivoAtividade.find(params[:id])
 
+    #Atualiza atividades
+    if params.has_key?(:atividades) then
+      @motivo_atividade.atividades = []
+      params[:atividades].each {|g|
+        gr = Atividade.find(g)
+        @motivo_atividade.atividades << gr unless @motivo_atividade.atividades.include?(gr)
+      }
+    else
+      @motivo_atividade.atividades = []
+    end
+    
     respond_to do |format|
-      if @motivo_atividade.update_attributes(params[:motivo_atividade])
+      if @motivo_atividade.update_attributes(params[:motivo_atividade])        
+        
         flash[:notice] = 'Motivo de Atividade atualizada com sucesso.'
         format.html { redirect_to(@motivo_atividade) }
         format.xml  { head :ok }
@@ -83,5 +107,10 @@ class MotivoAtividadesController < ApplicationController
       format.html { redirect_to(motivo_atividades_url) }
       format.xml  { head :ok }
     end
+  end
+
+  private
+  def find_atividades
+    @atividades = Atividade.find(:all)
   end
 end

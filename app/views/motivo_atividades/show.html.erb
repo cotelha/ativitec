@@ -5,7 +5,7 @@
 
 <p>
   <b>Atividade:</b>
-  <%=h @motivo_atividade.atividade.nm_atividade %>
+  <% @motivo_atividade.atividades.each do |x| %> <%=x.nm_atividade%> <% end %>
 </p>
 
 <%= link_to 'Editar', edit_motivo_atividade_path(@motivo_atividade), :class=>"linque_editar" %> <%= link_to 'Voltar', motivo_atividades_path, :class=>"linque_voltar" %>

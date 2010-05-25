@@ -21,7 +21,7 @@
 
 <p>
   <b>Atividade:</b>
-  <%=h @orden_servico.atividade %>
+  <%=h @orden_servico.atividade.nm_atividade unless @orden_servico.atividade.empty? %>
 </p>
 
 <p>

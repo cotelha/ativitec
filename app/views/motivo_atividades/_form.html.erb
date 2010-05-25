@@ -1,11 +1,19 @@
 <table width="80%" cellpadding="0" cellspacing="0" border="0" style="font-weight: bold;">
   <tr>
     <td><%= f.label :nm_motivo, "Nome" %></td>
-    <td><%= f.label :atividade %></td>
   </tr>
   <tr>
     <td><%= f.text_field :nm_motivo %></td>
-    <td><%= select("motivo_atividade", "atividade_id", Atividade.all.collect {|p| [ p.nm_atividade, p.id ] }) %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :atividades %></td>
+  </tr>
+  <tr>    
+    <td>
+      <% @atividades.each do |atividade| %>
+        <%= check_box_tag 'atividades[]', atividade.id, (:checked if @motivo_atividade.atividades.include? atividade) %> <%= atividade.nm_atividade %>
+      <% end %>
+    </td>
   </tr>
 </table>
 <br>

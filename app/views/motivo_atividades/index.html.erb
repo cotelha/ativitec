@@ -8,12 +8,11 @@
 <% @motivo_atividades.each do |motivo_atividade| %>
   <tr>
     <td><%=h motivo_atividade.nm_motivo %></td>
-    <td><%=h motivo_atividade.atividade.nm_atividade %></td>
+    <td><% motivo_atividade.atividades.each do |x| %> <%=x.nm_atividade%> <% end %></td>
     <td align="center"><%= link_to 'Exibir', motivo_atividade %>
     <%= link_to 'Editar', edit_motivo_atividade_path(motivo_atividade) %>
     <%= link_to 'Excluir', motivo_atividade, :confirm => 'Tem certeza?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
-
 <%= link_to 'Novo motivo atividade', new_motivo_atividade_path, :class=>"linque_criar" %>

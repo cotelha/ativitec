@@ -3,9 +3,8 @@
     <th></th>
     <th>ID</th>
     <th>Cliente</th>
-    <th>Atividade</th>    
-    <th>Nro prioridade</th>
-    <th>Hrs previsao termino</th>
+    <th>Motivo</th>
+    <th>Previsao</th>
     <th>Contato</th>    
     <th>Projeto</th>
   </tr>
@@ -17,12 +16,11 @@
         <%= link_to "iniciar", {:controller=>"orden_servicos", :action => "iniciar", :id => orden_servico.id}, :class=>"comment-link", :style=>"PADDING-RIGHT: 10px;" %>
     </td>
     <td><%=h orden_servico.id %></td>
-    <td><%=h orden_servico.cliente %></td>    
-    <td><%=h orden_servico.atividade %></td>    
-    <td><%=h orden_servico.nro_prioridade %></td>
-    <td><%=h orden_servico.hrs_previsao_termino %></td>
+    <td><%=h orden_servico.cliente.nm_cliente unless orden_servico.cliente==nil %></td>
+    <td><%=h orden_servico.motivo_atividade.nm_motivo unless orden_servico.motivo_atividade==nil %></td>
+    <td><%=h orden_servico.hrs_previsao_termino.to_i %>hs</td>
     <td><%=h orden_servico.nm_contato %></td>    
-    <td><%=h orden_servico.projeto %></td>    
+    <td><%=h orden_servico.projeto.nm_projeto unless orden_servico.projeto==nil %></td>
   </tr>
 <% end %>
 </table>

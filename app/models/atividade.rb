@@ -1,4 +1,4 @@
 class Atividade < ActiveRecord::Base
-  validates_presence_of :nm_atividade, :tp_atividade
-  has_many :motivo_atividades
+  has_and_belongs_to_many :motivo_atividades
+  validates_presence_of :nm_atividade, :tp_atividade  
 end

@@ -2,6 +2,7 @@ class AtividadesController < ApplicationController
   # GET /atividades
   # GET /atividades.xml
   before_filter :login_required
+  before_filter :find_motivo_atividades, :only => [:new, :edit, :update, :create, :show, :index]
   
   def index
     @atividades = Atividade.all
@@ -44,6 +45,17 @@ class AtividadesController < ApplicationController
   def create
     @atividade = Atividade.new(params[:atividade])
 
+    #Atualiza motivo de atividades
+    if params.has_key?(:motivo_atividades) then
+      @atividade.motivo_atividades = []
+      params[:motivo_atividades].each {|g|
+        gr = MotivoAtividade.find(g)
+        @atividade.motivo_atividades << gr unless @atividade.motivo_atividades.include?(gr)
+      }
+    else
+      @atividade.atividades = []
+    end
+
     respond_to do |format|
       if @atividade.save
         flash[:notice] = 'Atividade cadastrada com sucesso.'
@@ -60,6 +72,17 @@ class AtividadesController < ApplicationController
   # PUT /atividades/1.xml
   def update
     @atividade = Atividade.find(params[:id])
+
+    #Atualiza motivo de atividades
+    if params.has_key?(:motivo_atividades) then
+      @atividade.motivo_atividades = []
+      params[:motivo_atividades].each {|g|
+        gr = MotivoAtividade.find(g)
+        @atividade.motivo_atividades << gr unless @atividade.motivo_atividades.include?(gr)
+      }
+    else
+      @atividade.atividades = []
+    end
 
     respond_to do |format|
       if @atividade.update_attributes(params[:atividade])
@@ -83,5 +106,10 @@ class AtividadesController < ApplicationController
       format.html { redirect_to(atividades_url) }
       format.xml  { head :ok }
     end
+  end
+
+  private
+  def find_motivo_atividades
+    @motivo_atividades = MotivoAtividade.find(:all)
   end
 end

@@ -25,6 +25,17 @@
     <td valign="top"><%= f.text_field :nr_ordem %></td>
     <td valign="top"><%= select_tag "atividade[exibe_prev_termino]", options_for_select([ ["SIM",true], ["NÃO",false] ], @atividade.exibe_prev_termino) %></td>
   </tr>
+
+  <tr>
+    <td colspan="2"><%= f.label :motivo_atividades %></td>
+  </tr>
+  <tr>
+    <td>
+      <% @motivo_atividades.each do |ma| %>
+        <%= check_box_tag 'motivo_atividades[]', ma.id, (:checked if @atividade.motivo_atividades.include? ma) %> <%= ma.nm_motivo %>
+      <% end %>
+    </td>
+  </tr>
 </table>
 <br>
 <%= f.submit 'Gravar', :class=>"botao_salvar" %> <%= link_to 'Voltar', atividades_path, :class=>"linque_voltar" %>

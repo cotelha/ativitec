@@ -8,8 +8,8 @@
                 <td> <%= text_field_tag 'de', nil, :size => 30, :maxlength => 50 %> </td>
               </tr>
               <tr>
-                <td width="20%" align="right"> Status: </td>
-                <td> <%#= text_field_tag 'para', nil, :size => 30, :maxlength => 50 %> </td>
+                <td width="20%" align="right"> </td>
+                <td> </td>
               </tr>
               </table>
             </td>
@@ -24,32 +24,6 @@
                 <td> <%= calendar_date_select_tag "data_fim", Time.now.strftime("%d/%m/%Y")+" 23:59", {:buttons => false, :time => true, :size => 15} %> </td>
               </tr>
               </table>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2">
-              <table width="100%" border="0">
-              <tr>
-                <td align="right" width="13%"> Ordenar por: </td>
-                <td> <%#= select_tag 'order', '<option value="data" selected="selected">Data</option><option value="tamanho">Tamanho</option><option value="quantidade">Quantidade</option>' %> </td>
-                <td align="right" width="13%"> Classificar por: </td>
-                <td> <%#= select_tag 'status', '<option value="" selected="selected"></option><option value="C">LIMPO</option><option value="B">BANIDO</option><option value="S">SPAM APAGADO</option><option value="s">SPAM MARCADO</option><option value="V">VIRUS</option>' %> </td>
-                <td align="right" width="20%"> Registros por página: </td>
-                <td> <%#= select_tag 'limit', '<option value="50" selected="selected">50</option><option value="100">100</option><option value="500">500</option>' %> </td>
-              </tr>
-              </table>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2">
-               <table width="100%" border="0">
-                <tr>
-                  <td align="right" width="13%"> Gerar como: </td>
-                  <td width="18%"> <%#= select_tag 'format', '<option value="html" selected="selected">HTML</option><option value="pdf">PDF</option>' %> </td>
-                    <td align="right" width="14%"> Agrupar por: </td>
-                  <td> <%#= select_tag 'agrupar_por', '<option value="sender.email" selected="selected">DE</option><option value="recip.email">PARA</option>' %> </td>
-                </tr>
-               </table>
             </td>
           </tr>
         </table>
