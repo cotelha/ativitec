@@ -53,7 +53,11 @@ class AtividadesController < ApplicationController
         @atividade.motivo_atividades << gr unless @atividade.motivo_atividades.include?(gr)
       }
     else
-      @atividade.atividades = []
+      begin
+        @atividade.atividades = []
+      rescue
+        ""
+      end
     end
 
     respond_to do |format|
@@ -81,7 +85,11 @@ class AtividadesController < ApplicationController
         @atividade.motivo_atividades << gr unless @atividade.motivo_atividades.include?(gr)
       }
     else
-      @atividade.atividades = []
+      begin
+        @atividade.atividades = []
+      rescue
+        ""
+      end
     end
 
     respond_to do |format|

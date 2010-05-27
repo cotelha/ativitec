@@ -1,26 +1,29 @@
-<table width="100%" border="0">
-  <tr>
-    <th></th>
-    <th>ID</th>
-    <th>Cliente</th>
-    <th>Motivo</th>
-    <th>Previsao</th>
-    <th>Contato</th>    
-    <th>Projeto</th>
-  </tr>
-<% @orden_servicos.each do |orden_servico| %>
-  <tr>
-    <td><%#= link_to 'X', orden_servico %>
-        <%#= link_to 'Y', edit_orden_servico_path(orden_servico) %>
-        <%#= link_to 'D', orden_servico, :confirm => 'Tem certeza?', :method => :delete %>
+<div id="list_os">
+  <table width="100%" border="0">
+    <tr>
+      <th></th>
+      <th>ID</th>
+      <th>Cliente</th>
+      <th>Motivo</th>
+      <th>Previsao</th>
+      <th>Contato</th>
+      <th>Projeto</th>
+    </tr>
+  <% @orden_servicos.each do |orden_servico| %>
+    <tr>
+      <td>
+        <%= link_to_remote("cancelar", :update => "list_os", :url => {:action => "cancelar", :id=>orden_servico.id }) %>
+        <%= link_to_remote("-", :update => "list_os", :url => {:action => "diminuir_prioridade", :id=>orden_servico.id }) %>
+        <%= link_to_remote("+", :update => "list_os", :url => {:action => "aumentar_prioridade", :id=>orden_servico.id }) %>
         <%= link_to "iniciar", {:controller=>"orden_servicos", :action => "iniciar", :id => orden_servico.id}, :class=>"comment-link", :style=>"PADDING-RIGHT: 10px;" %>
-    </td>
-    <td><%=h orden_servico.id %></td>
-    <td><%=h orden_servico.cliente.nm_cliente unless orden_servico.cliente==nil %></td>
-    <td><%=h orden_servico.motivo_atividade.nm_motivo unless orden_servico.motivo_atividade==nil %></td>
-    <td><%=h orden_servico.hrs_previsao_termino.to_i %>hs</td>
-    <td><%=h orden_servico.nm_contato %></td>    
-    <td><%=h orden_servico.projeto.nm_projeto unless orden_servico.projeto==nil %></td>
-  </tr>
-<% end %>
-</table>
+      </td>
+      <td><%=h orden_servico.id %></td>
+      <td><%=h orden_servico.cliente.nm_cliente unless orden_servico.cliente==nil %></td>
+      <td><%=h orden_servico.motivo_atividade.nm_motivo unless orden_servico.motivo_atividade==nil %></td>
+      <td><%=h orden_servico.hrs_previsao_termino.to_i %>hs</td>
+      <td><%=h orden_servico.nm_contato %></td>
+      <td><%=h orden_servico.projeto.nm_projeto unless orden_servico.projeto==nil %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>

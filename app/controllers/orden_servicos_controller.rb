@@ -129,6 +129,60 @@ class OrdenServicosController < ApplicationController
     end
   end
 
+  def diminuir_prioridade
+    @orden_servico = OrdenServico.find(params[:id])
+    if @orden_servico.nro_prioridade.to_i>0 then
+      nr = @orden_servico.nro_prioridade.to_i-1
+    else
+      nr = @orden_servico.nro_prioridade.to_i
+    end
+
+    respond_to do |format|
+      if @orden_servico.update_attribute('nro_prioridade',nr)
+        #flash[:notice] = 'Orden Servico parada.'
+        format.html { redirect_to orden_servicos_path }
+        format.xml  { head :ok }
+      else
+        format.html { redirect_to orden_servicos_path }
+        format.xml  { render :xml => @orden_servico.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def aumentar_prioridade
+    @orden_servico = OrdenServico.find(params[:id])
+    if @orden_servico.nro_prioridade.to_i<10 then
+      nr = @orden_servico.nro_prioridade.to_i+1
+    else
+      nr = @orden_servico.nro_prioridade.to_i
+    end
+    
+    respond_to do |format|
+      if @orden_servico.update_attribute('nro_prioridade',nr)
+        #flash[:notice] = 'Orden Servico parada.'
+        format.html { redirect_to orden_servicos_path }
+        format.xml  { head :ok }
+      else
+        format.html { redirect_to orden_servicos_path }
+        format.xml  { render :xml => @orden_servico.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def cancelar
+    @orden_servico = OrdenServico.find(params[:id])
+    respond_to do |format|
+      if @orden_servico.update_attribute('ind_status','C')
+        #flash[:notice] = 'Orden Servico parada.'
+        format.html { redirect_to orden_servicos_path }
+        format.xml  { head :ok }
+      else
+        format.html { redirect_to orden_servicos_path }
+        format.xml  { render :xml => @orden_servico.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
   # DELETE /orden_servicos/1
   # DELETE /orden_servicos/1.xml
   def destroy
