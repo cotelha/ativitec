@@ -5,7 +5,7 @@
 
 <p>
   <b>Tipo:</b>
-  <%= if @atividade.tp_atividade=="T" then "TRABALHO" else "DESCANÇO" end %>
+  <%= if @atividade.tp_atividade=="I" then "INTERNA" elsif @atividade.tp_atividade=="E" then "EXTERNO" elsif @atividade.tp_atividade=="D" then "DESCANSO" else "INDEFINIDO" end %>
 </p>
 
 <p>

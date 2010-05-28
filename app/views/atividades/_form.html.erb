@@ -5,7 +5,7 @@
   </tr>
   <tr>
     <td valign="top"><%= f.text_field :nm_atividade %><div id="erro_projeto" style="color:white; background-color:red; width:295px; padding-left:5px"><%= @atividade.errors.on(:nm_atividade).to_a.join("<br>") %></div></td>
-    <td valign="top"><%= select_tag "atividade[tp_atividade]", options_for_select([ ["TRABALHO","T"], ["DESCANSO","D"] ], @atividade.tp_atividade) %></td>
+    <td valign="top"><%= select_tag "atividade[tp_atividade]", options_for_select([ ["EXTERNA","E"], ["INTERNA","I"], ["DESCANSO","D"] ], @atividade.tp_atividade) %></td>
   </tr>
 
   <tr>

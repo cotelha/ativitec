@@ -44,7 +44,9 @@
   <b>Projeto:</b>
   <%=h @orden_servico.projeto.nm_projeto unless @orden_servico.projeto==nil %>
 </p>
-<%= link_to 'Iniciar', {:controller=>"orden_servicos", :action => "iniciar", :id => @orden_servico.id}, :class=>"comment-link", :style=>"PADDING-RIGHT: 10px;", :class=>"linque_editar" %>
-<%= link_to 'Editar', edit_orden_servico_path(@orden_servico), :onclick=>"Modalbox.show(this.href, {title: 'Ordens de Serviço', width: 600}); return false;", :class=>"linque_editar" %>
+<% if @atividade.tp_atividade!="E" then %>
+  <%= link_to 'Iniciar', {:controller=>"orden_servicos", :action => "iniciar", :id => @orden_servico.id}, :class=>"comment-link", :style=>"PADDING-RIGHT: 10px;", :class=>"linque_editar" %>
+  <%= link_to 'Editar', edit_orden_servico_path(@orden_servico), :onclick=>"Modalbox.show(this.href, {title: 'Ordens de Serviço', width: 600}); return false;", :class=>"linque_editar" %>
+<%end%>
 <%= link_to 'Fechar', nil, :onclick=>"Modalbox.hide(); return false;", :class=>"linque_voltar" %>
 <%#= link_to 'Back', orden_servicos_path, :onclick=>"Modalbox.show(this.href, {title: this.title, width: 600}); return false;", :class=>"linque_voltar" %>
