@@ -42,8 +42,7 @@ class OrdenServicosController < ApplicationController
   # POST /orden_servicos
   # POST /orden_servicos.xml
   def create    
-    params[:orden_servico][:ind_status] = "A"
-    params[:orden_servico][:atividade_id] = params[:cod_atividade]
+    params[:orden_servico][:ind_status] = "A"    
     params[:orden_servico][:dt_inicio] = Time.now.strftime("%d-%m-%Y %H:%M:%S").to_s
     @orden_servico = OrdenServico.new(params[:orden_servico])
 

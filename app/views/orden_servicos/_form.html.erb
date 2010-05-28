@@ -38,11 +38,12 @@
     <td><%=%><%= select("orden_servico", "user_id", User.all.collect {|p| [ p.login, p.id ] }, {:include_blank => false, :selected=>session[:user_id]}, :style=>"width: 230px;", :disabled=>(controller.action_name=='edit'?true:false)) %></td>
     <td><%= f.text_field :hrs_previsao_termino, :size=>5 %></td>
   </tr>
-</table>  
+</table>
 <% unless controller.action_name=="edit" then %>
-	<input type="submit" onclick="Modalbox.show('/orden_servico_create', {title: 'Ordens de Serviço', width: 500, params:Form.serialize('orden_servico') }); return false;" value="Gravar" class="botao_salvar">
+        <%= hidden_field_tag "orden_servico[atividade_id]", params[:cod_atividade] %>
+      <input type="submit" onclick="Modalbox.show('/orden_servico_create', {title: 'Ordens de Serviço', width: 500, params:Form.serialize('orden_servico') }); return false;" value="Gravar" class="botao_salvar">
 <% else %>
-	<input type="submit" onclick="Modalbox.show('/orden_servico_up/<%=params[:id].to_i%>', {title: 'Ordens de Serviço', width: 500, params:Form.serialize('orden_servico') }); return false;" value="Gravar" class="botao_salvar">
+      <input type="submit" onclick="Modalbox.show('/orden_servico_up/<%=params[:id].to_i%>', {title: 'Ordens de Serviço', width: 500, params:Form.serialize('orden_servico') }); return false;" value="Gravar" class="botao_salvar">
 <% end %>
 
 
