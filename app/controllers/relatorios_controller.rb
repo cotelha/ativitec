@@ -7,7 +7,7 @@ class RelatoriosController < ApplicationController
 
   def show
     sql="select
-            u.name AS usuario,
+            u.login AS usuario,
             a.nm_atividade as atividade,
             h.orden_servico_id AS nr_os,
             sum((h.dt_termino-h.dt_inicio)) AS tempo,
