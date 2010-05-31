@@ -10,7 +10,7 @@
 <% @atividades.each do |atividade| %>
   <tr>
     <td><%=h atividade.nm_atividade %></td>
-    <td><%=(atividade.tp_atividade=="T")?"TRABALHO":"DESCANSO"%></td>
+    <td><%= if atividade.tp_atividade=="I" then "INTERNA" elsif atividade.tp_atividade=="E" then "EXTERNO" elsif atividade.tp_atividade=="D" then "DESCANSO" else "INDEFINIDO" end%></td>
     <td><%=(atividade.exibe_projeto)?"SIM":"NÃO"%></td>    
     <td><%=(atividade.exibe_prev_termino)?"SIM":"NÃO"%></td>
     <td style="widows:15%; text-align:center"><%= link_to 'Exibir', atividade %>

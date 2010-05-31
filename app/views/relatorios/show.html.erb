@@ -33,21 +33,25 @@
       </table>
       <!-- cabecalho da consulta -->
 <br>
-<%= page_entries_info(@relatorios, :entry_name => 'registros').gsub('Displaying','Mostrando').gsub('all','todos') %><br><br>
+<%= page_entries_info(@relatorios, :entry_name => 'registros').gsub('Displaying','Mostrando').gsub('all','todos').gsub('of','de').gsub('in total','no total') %><br><br>
 <!-- conteudo -->
 
  <table class="linhasAlternadas">
       <tr>
         <th style="text-align:center; width:50px">ID OS</th>
-        <th style="text-align:center; width:120px">Data Inicio</th>
-        <th style="text-align:center; width:120px">Data Termino</th>
+        <th style="text-align:center; width:120px">Usuário</th>
+        <th style="text-align:center; width:100px">Tempo</th>
+        <th style="text-align:center; width:100px">Status</th>
+        <th style="text-align:center; width:120px">Atividade</th>
         <th>Descrição</th>
       </tr>
 <% @relatorios.each do |x| %>
       <tr>
-        <td style="text-align:center;"> <%= x.orden_servico_id %> </td>
-        <td style="text-align:center;"> <%=x.dt_inicio.strftime("%d/%m/%Y %H:%m")%> </td>
-        <td style="text-align:center;"> <%=x.dt_termino.strftime("%d/%m/%Y %H:%m")%> </td>
+        <td style="text-align:center;"> <%= x.nr_os %> </td>
+        <td style="text-align:center;"> <%= x.usuario %> </td>
+        <td style="text-align:center;"> <%=x.tempo%> </td>
+        <td style="text-align:center;"> <%=x.status%> </td>
+        <td style="text-align:center;"> <%=x.atividade%> </td>
         <td> <%=x.txt_descricao%> </td>
       </tr>
 <%end%>
