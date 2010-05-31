@@ -39,5 +39,8 @@ Rails::Initializer.run do |config|
   config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   config.i18n.default_locale = "pt-BR"
 end
+
+# gem usadas no projeto
 require 'composite_primary_keys'
 require 'will_paginate'
+require 'postgres-pr'
