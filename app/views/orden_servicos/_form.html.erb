@@ -22,7 +22,7 @@
     <td colspan="2"><%= f.label :motivo_atividade %></td>
   </tr>
   <tr>
-    <td colspan="2"><% MotivoAtividade.all.each do |x| %> <%=radio_button("orden_servico", "motivo_atividade_id", x.id) %> <%=x.nm_motivo%> <% end %></td>
+    <td colspan="2"><% @atividade.motivo_atividades.each do |x| %> <%=radio_button("orden_servico", "motivo_atividade_id", x.id) %> <%=x.nm_motivo%> <% end %></td>
   </tr>
   <tr>
     <td colspan="2"><%= f.label :cliente %></td>
