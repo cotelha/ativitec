@@ -1,6 +1,9 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
+  require "fusioncharts_helper"
+	include FusionChartsHelper
+
   def flash_message
     messages = ""
     [:notice, :info, :warning, :error].each {|type|
@@ -9,6 +12,12 @@ module ApplicationHelper
       end
     }
     messages
+  end
+
+  def sec2time_grafico(tempo)
+      t=tempo.split(":")
+      retorno=((((t[0].to_i*60)+(t[1].to_i))*60)+t[2].to_i)/60
+    return retorno
   end
 
 end

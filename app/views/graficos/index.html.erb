@@ -1,2 +1,31 @@
-<h1>Graficos#index</h1>
-<p>Find me in app/views/graficos/index.html.erb</p>
+<% form_tag '/graficos/show', :method => :get do %>
+<table width="100%" border="0">
+          <tr>
+            <td align="center" width="50%">
+              <table width="100%" border="0">
+              <tr>
+                <td> Usuário: </td>
+                <td> <%= text_field_tag 'usuario', nil, :size => 30, :maxlength => 50 %> </td>
+              </tr>
+              <tr>
+                <td colspan="2">Tipo de Relatório: <%= select_tag 'tp_rel', '<option value="relAtividade" selected="selected">Horas por Atividade</option>' %></td>
+              </tr>
+              </table>
+            </td>
+            <td align="center" width="50%" valign="top">
+              <table width="100%" border="0">
+              <tr>
+                <td align="right"> Data de: </td>
+                <td> <%= calendar_date_select_tag "data_ini", Time.now.strftime("%d/%m/%Y")+" 00:00", {:buttons => false, :time => true, :size => 15} %> </td>
+              </tr>
+              <tr>
+                <td align="right"> Data até: </td>
+                <td> <%= calendar_date_select_tag "data_fim", Time.now.strftime("%d/%m/%Y")+" 23:59", {:buttons => false, :time => true, :size => 15} %> </td>
+              </tr>              
+              </table>
+            </td>
+          </tr>
+        </table>
+    <br>
+    <%= submit_tag 'Gerar Gráfico', :class=>"botao_salvar" %>
+<% end %>

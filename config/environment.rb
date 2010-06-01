@@ -43,4 +43,4 @@ end
 # gem usadas no projeto
 require 'composite_primary_keys'
 require 'will_paginate'
-require 'postgres-pr'
+#require 'postgres-pr'
