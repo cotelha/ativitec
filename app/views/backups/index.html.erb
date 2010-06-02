@@ -1,0 +1,2 @@
+<b>Último backup gerado:</b> <%=@backup.created_at.strftime("%d/%m/%Y - %H:%M")%><br><br>
+<%= link_to 'Gerar Backup', {:controller => "backups", :action => "dump"}, :class=>"linque_editar" %>

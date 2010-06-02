@@ -9,6 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :projetos
   map.resources :clientes
   map.resources :defaults, :only=>:index
+  map.resources :backups, :only=>:index
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
