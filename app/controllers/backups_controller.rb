@@ -11,7 +11,7 @@ class BackupsController < ApplicationController
     
     @backup = Backup.new(params[:backup])
     @backup.save
-    send_file 'public/ativitec.sql'    
+    send_file "#{RAILS_ROOT}/public/ativitec.sql"
   end
 
 end

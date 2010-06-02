@@ -1,5 +1,5 @@
 <%
-    str_xml = render "app/views/graficos/basic_factories_quantity.builder", { :rel => @rel }
+    str_xml = render "basic_factories_quantity.builder", { :rel => @rel }
     tipo='/FusionCharts/Pie3D.swf'    
     render_chart tipo, '', str_xml, 'FactorySum', 500, 600, false, false do -%>
 <% end-%>
