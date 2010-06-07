@@ -3,7 +3,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :orden_servicos
   map.signup '/orden_servico_create', :controller => 'orden_servicos', :action => 'create'
   map.signup '/orden_servico_up/:id', :controller => 'orden_servicos', :action => 'update'
-  
+
+  map.signup '/os_historico_create', :controller => 'os_historicos', :action => 'create'
+  map.resources :os_historicos
+
   map.resources :motivo_atividades
   map.resources :atividades
   map.resources :projetos

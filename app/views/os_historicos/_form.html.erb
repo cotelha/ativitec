@@ -1,0 +1,21 @@
+<table width="100%" border="0" cellpadding="0" cellspacing="1">
+  <tr>
+    <td align="center" colspan="2" style="font-size:14px; font-weight:bold; height:70px">
+      <%=params[:nome]%>?
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <input type="submit" onclick="Modalbox.show('/os_historico_create', {title: 'Ordens de Serviço', width: 500, params:Form.serialize('os_historico') }); Modalbox.deactivate({inactiveFade:false}); return false;" value="Iniciar" class="botao_salvar" />      
+    </td>
+    <td align="center">
+      <a href="#" onclick="Modalbox.hide(); return false;" class="linque_voltar" />Fechar</a>
+    </td>
+  </tr>
+</table>
+<%= hidden_field_tag "os_historico[atividade_id]", params[:cod_atividade] %>
+
+
+
+
+  

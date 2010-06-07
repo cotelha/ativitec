@@ -40,7 +40,11 @@
                 <% @atividades.each do |x| %>
                 <tr>
                   <td height="30" align="center" bgcolor="#EAEAEA">
-                    <%= link_to x.nm_atividade,"/orden_servicos/new?cod_atividade=#{x.id}", :onclick => "Modalbox.show(this.href, {title: 'Cadastro de Ordens de Serviço', width: 600}); return false;" %>
+                    <% if x.tp_atividade=="D" then %>
+                      <%= link_to x.nm_atividade,"/os_historicos/new?cod_atividade=#{x.id}&nome=#{x.nm_atividade}", :onclick => "Modalbox.show(this.href, {title: 'Ordem de Serviço', width: 250, height: 150}); return false;" %>
+                    <%else%>
+                      <%= link_to x.nm_atividade,"/orden_servicos/new?cod_atividade=#{x.id}", :onclick => "Modalbox.show(this.href, {title: 'Ordem de Serviço', width: 600}); return false;" %>
+                    <%end%>
                   </td>
                 </tr>
                 <% end %>

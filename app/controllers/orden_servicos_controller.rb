@@ -1,7 +1,7 @@
 class OrdenServicosController < ApplicationController
   # GET /orden_servicos
   # GET /orden_servicos.xml
-  before_filter :login_required  
+  before_filter :login_required
 
   def index
     @orden_servicos = OrdenServico.find(:all, :conditions=>{:ind_status=>"A", :user_id=>current_user.id}, :order=>"nro_prioridade DESC")
@@ -26,7 +26,7 @@ class OrdenServicosController < ApplicationController
   # GET /orden_servicos/new
   # GET /orden_servicos/new.xml
   def new    
-    @orden_servico = OrdenServico.new    
+    @orden_servico = OrdenServico.new
     @atividade = Atividade.find_by_id(params[:cod_atividade])
     
     respond_to do |format|
@@ -54,7 +54,7 @@ class OrdenServicosController < ApplicationController
       params[:orden_servico][:dt_inicio] = ("#{params[:data].gsub("/","-")} #{params[:hora_inicio]}:00").to_datetime.strftime("%Y-%m-%d %H:%M:%S").to_s
       params[:orden_servico][:dt_termino] = "#{params[:data].gsub("/","-")} #{params[:hora_fim]}:00".to_datetime.strftime("%Y-%m-%d %H:%M:%S").to_s
       params[:orden_servico][:ind_status] = "C"
-    end        
+    end
 
     @orden_servico = OrdenServico.new(params[:orden_servico])
 
@@ -62,7 +62,7 @@ class OrdenServicosController < ApplicationController
       if @orden_servico.save
 
         if @atividade.tp_atividade=="E" then
-          @orden_servico.os_historicos.create(:user_id => current_user.id, :dt_inicio => params[:orden_servico][:dt_inicio], :dt_termino => params[:orden_servico][:dt_termino])
+          @orden_servico.os_historicos.create(:atividade_id => @atividade.id, :user_id => current_user.id, :dt_inicio => params[:orden_servico][:dt_inicio], :dt_termino => params[:orden_servico][:dt_termino])
         end
         
         #flash[:notice] = 'OrdenServico was successfully created.'
