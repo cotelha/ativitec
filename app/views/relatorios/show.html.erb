@@ -1,41 +1,8 @@
-<table width="640" border="0" bgcolor="#f6eff5" align="center">
-        <tr>
-          <td colspan="2" align="right" style="padding-right:10px;">
-            <%="<b>Data de emissão:</b> "+Time.new.strftime("%d/%m/%Y - %H:%M")%>
-          </td>
-        </tr>
-        <tr>
-          <td width="60%">
-              <table width="100%" border="0">
-                <tr>
-                  <td width="25%" align="right"> <b>Usuário:</b> </td>
-                  <td> </td>
-                </tr>
-                <tr>
-                  <td width="25%" align="right"> </td>
-                  <td> </td>
-                </tr>
-              </table>
-          </td>
-          <td>
-              <table width="100%" border="0">
-                <tr>
-                  <td width="30%" align="right"><b> Data de: </b></td>
-                  <td> <%=params[:data_ini]%> </td>
-                </tr>
-                <tr>
-                  <td align="right"> <b>Data até:</b> </td>
-                  <td> <%=params[:data_fim]%> </td>
-                </tr>
-              </table>
-          </td>
-        </tr>        
-      </table>
-      <!-- cabecalho da consulta -->
+<hr>
+<%= page_entries_info(@relatorios, :entry_name => 'registros').gsub('Displaying','Mostrando').gsub('all','todos').gsub('of','de').gsub('in total','no total').gsub('No registros found','<div id=no_register class=no_register style="text-align:center">Não foram encontrados registros</div>') %>
 <br>
-<%= page_entries_info(@relatorios, :entry_name => 'registros').gsub('Displaying','Mostrando').gsub('all','todos').gsub('of','de').gsub('in total','no total') %><br><br>
 <!-- conteudo -->
-
+<% if @relatorios.size>0 then %>
  <table class="linhasAlternadas">
       <tr>
         <th style="text-align:center; width:50px">ID OS</th>
@@ -57,3 +24,4 @@
 <%end%>
  </table>
 <%= will_paginate @relatorios, :prev_label => "Anterior", :next_label => "Próximo", :class => "digg_pagination" %>
+<%end%>

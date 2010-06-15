@@ -4,6 +4,7 @@ class OsHistoricosController < ApplicationController
   before_filter :login_required
 
   def show
+    @atividade = Atividade.find_by_id(params[:id].split(",")[2])
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @os_historico }
@@ -13,8 +14,7 @@ class OsHistoricosController < ApplicationController
   # GET /orden_servicos/new
   # GET /orden_servicos/new.xml
   def new
-    @os_historico = OsHistorico.new
-    #@atividade = Atividade.find_by_id(params[:cod_atividade])
+    @os_historico = OsHistorico.new    
 
     respond_to do |format|
       format.html # new.html.erb      
@@ -29,7 +29,7 @@ class OsHistoricosController < ApplicationController
     @orden_servicos.each do |x|
      b=OsHistorico.find_by_orden_servico_id(x.id, :conditions => {:dt_termino => nil})
      b.update_attribute("dt_termino",Time.now.strftime("%d-%m-%Y %H:%M:%S"))
-    end    
+    end
 
       params[:os_historico][:dt_inicio] = Time.now.strftime("%Y-%m-%d %H:%M:%S").to_s
       params[:os_historico][:user_id] = current_user.id

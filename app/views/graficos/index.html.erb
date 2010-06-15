@@ -1,14 +1,23 @@
-<% form_tag '/graficos/show', :method => :get do %>
+<% form_remote_tag :url => '/graficos/show',
+  :update => "result",
+  :loading => "Element.show('carregando')",
+  :complete => "Element.hide('carregando')",
+  :method => :get do %>
 <table width="100%" border="0">
           <tr>
             <td align="center" width="50%">
               <table width="100%" border="0">
               <tr>
-                <td> Usuário: </td>
-                <td> <%= text_field_tag 'usuario', nil, :size => 30, :maxlength => 50 %> </td>
+                <td width="20%" align="right"> Usuário: </td>
+                <td> <%= select("relatorio", "usuario_id", User.all.collect {|p| [ p.login, p.id ] }, {:include_blank => true}, :style=>"width: 230px;") %> </td>
               </tr>
               <tr>
-                <td colspan="2">Tipo de Relatório: <%= select_tag 'tp_rel', '<option value="relAtividade" selected="selected">Horas por Atividade</option>' %></td>
+                <td width="20%" align="right"> Cliente: </td>
+                <td> <%= select("relatorio", "cliente_id", Cliente.all.collect {|p| [ p.nm_cliente, p.id ] }, {:include_blank => true}, :style=>"width: 230px;") %> </td>
+              </tr>
+              <tr>
+                <td width="20%" align="right">Tipo: </td>
+                <td> <%= select_tag 'tp_rel', '<option value="relMotivoAtividade" selected="selected">Por Motivo de Atividade</option><option value="relUsuario">Por Usuário</option><option value="relAtividade">Por Atividade</option>', :style=>"width: 230px;" %></td>
               </tr>
               </table>
             </td>
@@ -28,4 +37,6 @@
         </table>
     <br>
     <%= submit_tag 'Gerar Gráfico', :class=>"botao_salvar" %>
+    <div id="carregando" style="display:none"><%=image_tag("loading.gif", :border=>0)%>carregando...</div>
 <% end %>
+<div id="result"></div>

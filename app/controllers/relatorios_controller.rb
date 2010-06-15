@@ -1,8 +1,9 @@
 class RelatoriosController < ApplicationController
 
   require 'will_paginate'
+  layout "application", :except => :show
 
-  def index
+  def index    
   end
 
   def show
@@ -15,7 +16,7 @@ class RelatoriosController < ApplicationController
               WHEN (os.ind_status='A') THEN 'EM ABERTO'
               WHEN (os.ind_status='C') THEN 'CONCLUIDO'
               WHEN (os.ind_status='E') THEN 'EM USO'
-              ELSE ''
+              WHEN (os.ind_status='R') THEN 'CANCELADA'              
             END) AS status,
             os.txt_descricao
 
@@ -31,8 +32,14 @@ class RelatoriosController < ApplicationController
           a.id = os.atividade_id
 
           where os.dt_inicio BETWEEN '"+params[:data_ini]+"' AND '"+params[:data_fim]+"'"
-            if (params[:usuario]!="") then
-              sql << "AND upper(u.name) like upper('%"+params[:usuario]+"%')"
+            if (params[:relatorio][:usuario_id]!="") then
+              sql << " AND os.user_id = "+params[:relatorio][:usuario_id]
+            end
+            if (params[:relatorio][:cliente_id]!="") then
+              sql << " AND os.cliente_id = "+params[:relatorio][:cliente_id]
+            end
+            if (params[:relatorio][:projeto_id]!="") then
+              sql << " AND os.projeto_id = "+params[:relatorio][:projeto_id]
             end
           sql << "group by h.orden_servico_id, os.ind_status, u.login, os.txt_descricao, a.nm_atividade"
     

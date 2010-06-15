@@ -1,15 +1,23 @@
-<% form_tag '/relatorios/show', :method => :get do %>
+<% form_remote_tag :url => '/relatorios/show',
+  :update => "result",
+  :loading => "Element.show('carregando')",
+  :complete => "Element.hide('carregando')",
+  :method => :get do %>
 <table width="100%" border="0">
           <tr>
             <td align="center" width="50%">
               <table width="100%" border="0">
               <tr>
                 <td width="20%" align="right"> Usuário: </td>
-                <td> <%= text_field_tag 'usuario', nil, :size => 30, :maxlength => 50 %> </td>
+                <td> <%= select("relatorio", "usuario_id", User.all.collect {|p| [ p.login, p.id ] }, {:include_blank => true}, :style=>"width: 230px;") %> </td>
               </tr>
               <tr>
-                <td width="20%" align="right"> </td>
-                <td> </td>
+                <td width="20%" align="right"> Cliente: </td>
+                <td> <%= select("relatorio", "cliente_id", Cliente.all.collect {|p| [ p.nm_cliente, p.id ] }, {:include_blank => true}, :style=>"width: 230px;") %> </td>
+              </tr>
+              <tr>
+                <td width="20%" align="right"> Projeto: </td>
+                <td> <%= select("relatorio", "projeto_id", Projeto.all.collect {|p| [ p.nm_projeto, p.id ] }, {:include_blank => true}, :style=>"width: 230px;") %> </td>
               </tr>
               </table>
             </td>
@@ -28,6 +36,8 @@
           </tr>
         </table>
     <br>
-    <%= submit_tag 'Gerar relatório', :class=>"botao_salvar", :style=>"" %>
+<%= submit_tag 'Gerar relatório', :class=>"botao_salvar" %>
+  <div id="carregando" style="display:none"><%=image_tag("loading.gif", :border=>0)%>carregando...</div>
 <% end %>
 <!-- fim conteudo -->
+<div id="result"></div>

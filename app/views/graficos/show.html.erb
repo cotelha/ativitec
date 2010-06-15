@@ -1,5 +1,12 @@
 <%
+if @rel.size > 1 then
     str_xml = render "basic_factories_quantity.builder", { :rel => @rel }
     tipo='/FusionCharts/Pie3D.swf'    
-    render_chart tipo, '', str_xml, 'FactorySum', 800, 400, false, false do -%>
-<% end-%>
+    render_chart tipo, '', str_xml, 'FactorySum', 800, 400, false, false do 
+    end
+else
+%>
+  <div id=no_register class=no_register style="text-align:center">Não foram encontrados registros</div>
+<%
+  end
+%>

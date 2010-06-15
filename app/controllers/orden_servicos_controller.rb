@@ -191,7 +191,7 @@ class OrdenServicosController < ApplicationController
   def cancelar
     @orden_servico = OrdenServico.find(params[:id])
     respond_to do |format|
-      if @orden_servico.update_attribute('ind_status','C')
+      if @orden_servico.update_attribute('ind_status','R')
         #flash[:notice] = 'Orden Servico parada.'
         format.html { redirect_to orden_servicos_path }
         format.xml  { head :ok }

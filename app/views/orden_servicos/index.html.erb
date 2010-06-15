@@ -13,16 +13,16 @@
   <% @orden_servicos.each do |orden_servico| %>
     <tr>
       <td width="25px">
-        <%= link_to image_tag("OK.png", :height => '25', :width => '25' ), {:controller=>"orden_servicos", :action => "iniciar", :id => orden_servico.id}, :class=>"comment-link", :style=>"PADDING-RIGHT: 10px;" %>
+        <%= link_to image_tag("OK.png", :height => '25', :width => '25', :title=>"iniciar os"), {:controller=>"orden_servicos", :action => "iniciar", :id => orden_servico.id}, :class=>"comment-link", :style=>"PADDING-RIGHT: 10px;" %>
       </td>
       <td width="25px">
-        <%= link_to_remote(image_tag("ERR.png", :height => '25', :width => '25'), :update => "list_os", :url => {:action => "cancelar", :id=>orden_servico.id }, :confirm => 'Tem certeza?') %>
+        <%= link_to_remote(image_tag("ERR.png", :height => '25', :width => '25', :title=>"cancelar os"), :update => "list_os", :url => {:action => "cancelar", :id=>orden_servico.id }, :confirm => 'Tem certeza?') %>
       </td>
       <td width="25px">
-        <%= link_to_remote(image_tag("MENOS.png", :height => '25', :width => '25'), :update => "list_os", :url => {:action => "diminuir_prioridade", :id=>orden_servico.id }) %>
+        <%= link_to_remote(image_tag("MENOS.png", :height => '25', :width => '25', :title=>"diminuir prioridade"), :update => "list_os", :url => {:action => "diminuir_prioridade", :id=>orden_servico.id }) %>
       </td>
       <td width="25px">
-        <%= link_to_remote(image_tag("MAIS.png", :height => '25', :width => '25'), :update => "list_os", :url => {:action => "aumentar_prioridade", :id=>orden_servico.id }) %>
+        <%= link_to_remote(image_tag("MAIS.png", :height => '25', :width => '25', :title=>"aumentar prioridade"), :update => "list_os", :url => {:action => "aumentar_prioridade", :id=>orden_servico.id }) %>
       </td>
       <td><%=h orden_servico.id %></td>
       <td><%=h orden_servico.cliente.nm_cliente unless orden_servico.cliente==nil %></td>
