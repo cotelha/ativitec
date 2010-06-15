@@ -96,7 +96,7 @@ class OrdenServicosController < ApplicationController
 
   def iniciar
     @orden_servico = OrdenServico.find(params[:id])
-    @orden_servico.os_historicos.create(:user_id => current_user.id, :dt_inicio => Time.now.strftime("%d-%m-%Y %H:%M:%S"))
+    @orden_servico.os_historicos.create(:atividade_id=>@orden_servico.atividade_id, :user_id => current_user.id, :dt_inicio => Time.now.strftime("%d-%m-%Y %H:%M:%S"))
 
     respond_to do |format|
       if @orden_servico.update_attribute('ind_status','E')
