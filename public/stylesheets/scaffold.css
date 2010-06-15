@@ -112,6 +112,10 @@ a:hover { color: #fff; background-color:#000; }
     margin-top:13px;
 }
 
+.zebra {
+    background-color: #F6F6F6;
+}
+
 /* tabela index */
 table.linhasAlternadas {
 	border-collapse: collapse; /* CSS2 */

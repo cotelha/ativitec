@@ -34,12 +34,12 @@
   <!-- fim das OS em execucao -->
   
   <div id=sidebar-wrapper>
-      <div id=sidebar class="sidebar section">
+    <div id=sidebar class="sidebar section">
           <div id=Feed1 class="widget Feed"> <h2>ATIVIDADES</h2>
-              <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold">
+              <table id="atividades" width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold; background-color:#EAEAEA">
                 <% @atividades.each do |x| %>
                 <tr>
-                  <td height="30" align="center" bgcolor="#EAEAEA">
+                  <td height="30" align="center">
                     <% if x.tp_atividade=="D" then %>
                       <%= link_to x.nm_atividade,"/os_historicos/new?cod_atividade=#{x.id}&nome=#{x.nm_atividade}", :onclick => "Modalbox.show(this.href, {title: 'Ordem de Serviço', width: 250, height: 150}); return false;" %>
                     <%else%>
@@ -55,3 +55,6 @@
       </div>
   </div>
   <!-- fim das ATIVIDADES -->
+  <script>
+    tableZebra("atividades", "zebra");
+  </script>
