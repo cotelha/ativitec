@@ -27,13 +27,13 @@ A IMG {
 #header-wrapper {
 	MARGIN: 0px;
 	WIDTH: 100%;
-	HEIGHT: 70px;
+	HEIGHT: 85px; /*altura do cabecalho*/
 	OVERFLOW: hidden;
 	padding: 0px;
 }
 #header {
 	WIDTH: 960px;
-	HEIGHT: 60px;
+	HEIGHT: 75px; /*altura do cabecalho*/
 	COLOR: #fff;
 	FONT-SIZE: 11px;
 	OVERFLOW: hidden;

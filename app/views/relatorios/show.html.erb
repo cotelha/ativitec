@@ -1,8 +1,14 @@
 <hr>
 <%= page_entries_info(@relatorios, :entry_name => 'registros').gsub('Displaying','Mostrando').gsub('all','todos').gsub('of','de').gsub('in total','no total').gsub('No registros found','<div id=no_register class=no_register style="text-align:center">Não foram encontrados registros</div>') %>
-<br>
 <!-- conteudo -->
 <% if @relatorios.size>0 then %>
+<table width="100%" border="0">
+  <tr>
+    <td align="right">
+        <%=image_tag("printer.png")%>
+    </td>
+  </tr>
+</table>
  <table class="linhasAlternadas">
       <tr>
         <th style="text-align:center; width:50px">ID OS</th>

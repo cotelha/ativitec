@@ -17,36 +17,41 @@
 <div id=wrap>
 <br><br>
   <div id=homepage-wrapper style="width:450px;">
-
         <div id=navigation-wrapper style="width:440px; padding:5px; text-align:center; font-weight:bold; font-size:14px;">
+          <div id="logo">
+            <%=image_tag("logo.png") %>            
+          </div>
+          <br />
              Informe seu usuário e senha e em seguida <br>
                clique em entrar para acessar o sistema.
         </div>
 
         <div style="CLEAR: both"></div>
 
-        <div id=outer-wrapper style="width:450px;">
+        <div id=outer-wrapper style="width:450px; background-color:#f3f3f3;">          
             <div id=wrap2>
                 <div id=content-wrapper>
                     <div id=mainarea-wrapper>
                         <div id=centerbar-wrapper-list>
 <% form_tag session_path do -%>
-  <table width="10%" border="0">
+  <table width="70%" border="0">
   <tr>
-    <td><b><%= label_tag 'login' %></b></td>
+    <td align="right"><b><%= label_tag 'login:' %></b></td>
     <td><%= text_field_tag 'login', @login %></td>
   </tr>  
   <tr>
-    <td><b><%= label_tag 'password', 'Senha' %></b></td>
+    <td align="right"><b><%= label_tag 'password', 'Senha:' %></b></td>
     <td><%= password_field_tag 'password', nil %></td>
-  </tr>  
+  </tr>
+    <tr>
+      <td></td>
+      <td><%= submit_tag 'Entrar', :class=> "botao_salvar" %></td>
+    </tr>
   <!-- Uncomment this if you want this functionality
   <p><%= label_tag 'remember_me', 'Remember me' %>
   <%= check_box_tag 'remember_me', '1', @remember_me %></p>
   -->
-  </table>
-  <br>
-  <%= submit_tag 'Entrar', :class=> "botao_salvar" %>
+  </table>    
 <% end -%>
                         </div>
                         <div id=bottombar-wrapper></div>
