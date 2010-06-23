@@ -9,41 +9,27 @@
   <%=h @orden_servico.dt_termino %>
 </p>
 -->
-
-<p>
   <b>Contato:</b>
   <%=h @orden_servico.nm_contato %>
-</p>
-
-<p>
+<br><br>
   <b>Cliente:</b>
   <%=h @orden_servico.cliente.nm_cliente unless @orden_servico.cliente==nil %>
-</p>
-
-<p>
+<br><br>
   <b>Atividade:</b>
   <%=h @orden_servico.atividade.nm_atividade unless @orden_servico.atividade==nil %>
-</p>
-
-<p>
-  <b>Txt descricao:</b>
-  <%=h @orden_servico.txt_descricao %>
-</p>
-
-<p>
-  <b>Hrs previsao termino:</b>
+<br><br>
+  <b>Descrição:</b>
+  <%= @orden_servico.txt_descricao.gsub("\n","<br>") %>
+<br><br>
+  <b>Previsão Término:</b>
   <%=h @orden_servico.hrs_previsao_termino %>
-</p>
-
-<p>
-  <b>Motivo atividades:</b>
+<br><br>
+  <b>Motivo Atividade:</b>
   <%=h @orden_servico.motivo_atividade.nm_motivo unless @orden_servico.motivo_atividade==nil %>
-</p>
-
-<p>
+<br><br>
   <b>Projeto:</b>
   <%=h @orden_servico.projeto.nm_projeto unless @orden_servico.projeto==nil %>
-</p>
+<br><br>
 <% if @atividade.tp_atividade!="E" then %>
   <% if @orden_servico.ind_status!="E" then %>
     <%= link_to 'Iniciar', {:controller=>"orden_servicos", :action => "iniciar", :id => @orden_servico.id}, :class=>"comment-link", :style=>"PADDING-RIGHT: 10px;", :class=>"linque_editar" %>

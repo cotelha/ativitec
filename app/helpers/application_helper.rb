@@ -20,4 +20,16 @@ module ApplicationHelper
     return retorno
   end
 
+  def convert_hour(tempo)
+    t = tempo.split(":")
+
+    #converte hora em minutos
+    horas = t[0].to_i*60
+    minutos = t[1].to_i
+    segundos = t[2].to_i/60
+
+    retorno = ((horas.to_f+minutos.to_f+segundos.to_f)/60)
+    return retorno
+  end
+
 end

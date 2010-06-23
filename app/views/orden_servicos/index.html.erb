@@ -1,9 +1,9 @@
 <div id="list_os">
-  <table width="100%" border="0">
+  <table width="100%" border="0" id="tabela_os_pendente" class="linhasAlternadas2">
     <tr>
       <th colspan="2"></th>
       <th colspan="2"></th>
-      <th>ID</th>
+      <th style="width:30px; text-align:center">ID</th>
       <th>Cliente</th>
       <th>Motivo</th>
       <th>Previsao</th>
@@ -11,7 +11,7 @@
       <th>Projeto</th>
     </tr>
   <% @orden_servicos.each do |orden_servico| %>
-    <tr>
+    <tr style="background-color:#efefef;">
       <td width="25px">
         <%= link_to image_tag("OK.png", :height => '25', :width => '25', :title=>"iniciar os"), {:controller=>"orden_servicos", :action => "iniciar", :id => orden_servico.id}, :class=>"comment-link", :style=>"PADDING-RIGHT: 10px;" %>
       </td>
@@ -24,13 +24,22 @@
       <td width="25px">
         <%= link_to_remote(image_tag("MAIS.png", :height => '25', :width => '25', :title=>"aumentar prioridade"), :update => "list_os", :url => {:action => "aumentar_prioridade", :id=>orden_servico.id }) %>
       </td>
-      <td><%=h orden_servico.id %></td>
-      <td><%=h orden_servico.cliente.nm_cliente unless orden_servico.cliente==nil %></td>
-      <td><%=h orden_servico.motivo_atividade.nm_motivo unless orden_servico.motivo_atividade==nil %></td>
-      <td><%=h orden_servico.hrs_previsao_termino.to_i %>hs</td>
-      <td><%=h orden_servico.nm_contato %></td>
-      <td><%=h orden_servico.projeto.nm_projeto unless orden_servico.projeto==nil %></td>
+      <td onclick="abre_div('ajuda_<%=h orden_servico.id%>',this);" style="width:30px; text-align:center; cursor:pointer"><%=h orden_servico.id %></td>
+      <td onclick="abre_div('ajuda_<%=h orden_servico.id%>',this);" style="cursor:pointer">
+        <%=h orden_servico.cliente.nm_cliente unless orden_servico.cliente==nil %>        
+      </td>
+      <td onclick="abre_div('ajuda_<%=h orden_servico.id%>',this);" style="cursor:pointer"><%=h orden_servico.motivo_atividade.nm_motivo unless orden_servico.motivo_atividade==nil %></td>
+      <td onclick="abre_div('ajuda_<%=h orden_servico.id%>',this);" style="cursor:pointer"><%=h orden_servico.hrs_previsao_termino.to_i %>hs</td>
+      <td onclick="abre_div('ajuda_<%=h orden_servico.id%>',this);" style="cursor:pointer"><%=h orden_servico.nm_contato %></td>
+      <td onclick="abre_div('ajuda_<%=h orden_servico.id%>',this);" style="cursor:pointer"><%=h orden_servico.projeto.nm_projeto unless orden_servico.projeto==nil %></td>
+    </tr>
+    <tr style="background-color:#f8f5f6;">
+      <td colspan="4"></td>
+      <td colspan="6">
+        <div id="ajuda_<%=h orden_servico.id%>" style="display:none;"><b><%=h orden_servico.txt_descricao.gsub("\n","<br>") %></b></div>
+      </td>
     </tr>
   <% end %>
   </table>
+  <br>
 </div>

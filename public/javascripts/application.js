@@ -1,10 +1,20 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+document.observe("dom:loaded", function() {
+    //faz sumir as flash_mensagens
+    setTimeout(hideFlashes, 5000);
 
-// script que faz sumir as flash_mensagens
-document.observe('dom:loaded', function() {
-  setTimeout(hideFlashes, 5000);
-});
+    // O elemento no qual e observado todos os cliques e capturado provenientes das paginacoes
+    var container = $(document.body)
+    if (container) {
+      container.observe('click', function(e) {
+        var el = e.element()
+        if (el.match('.digg_pagination a')) {
+          el.up('.digg_pagination').insert("<img src='images/spinner.gif' border='0' />carregando...")
+          new Ajax.Request(el.href.replace("html","js"), { method: 'get' })
+          e.stop()
+        }
+      })
+    }
+})
 
 var hideFlashes = function() {
   $$('.msg_notice', '.msg_warning', '.msg_error').each(function(e) {

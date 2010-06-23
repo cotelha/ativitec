@@ -19,15 +19,16 @@
         <th>Descrição</th>
       </tr>
 <% @relatorios.each do |x| %>
-      <tr>
+      <%# soma = soma + x.tempo %>
+      <tr <% if x.status=="CANCELADA" %> style="color:white; opacity:0.4; background-color:red;" <%end%>>
         <td style="text-align:center;"> <%= x.nr_os %> </td>
         <td style="text-align:center;"> <%= x.usuario %> </td>
-        <td style="text-align:center;"> <%=x.tempo%> </td>
-        <td style="text-align:center;"> <%=x.status%> </td>
+        <td style="text-align:center;"> <%=convert_hour(x.tempo) unless x.tempo==nil %> </td>
+        <td style="text-align:center; background-color:"> <%=x.status%> </td>
         <td style="text-align:center;"> <%=x.atividade%> </td>
         <td> <%=x.txt_descricao%> </td>
       </tr>
 <%end%>
  </table>
-<%= will_paginate @relatorios, :prev_label => "Anterior", :next_label => "Próximo", :class => "digg_pagination" %>
+<%= will_paginate @relatorios, :previous_label => "Anterior", :next_label => "Próximo", :class => "digg_pagination" %>
 <%end%>
