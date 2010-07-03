@@ -1,6 +1,38 @@
-<%#
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-%>
-
-<%= "imprimir.html" %>
+<table width="100%" border="0" style="font-family:sans-serif; font-size:12px;">
+  <tr>
+    <td>
+      
+    </td>
+  </tr>
+</table>
+<table width="100%" style="font-family:sans-serif; font-size:12px;">
+      <tr>
+        <th style="text-align:center; width:50px">ID OS</th>
+        <th style="text-align:center; width:120px">Usuário</th>
+        <th style="text-align:center; width:100px">Tempo</th>
+        <th style="text-align:center; width:100px">Status</th>
+        <th style="text-align:center; width:140px">Atividade</th>
+        <th style="text-align:left;">Descrição</th>
+      </tr>
+<% soma = 0.0 %>
+<% @relatorios.each do |x| %>
+      <% soma = soma + if(x.tempo!=nil) then convert_hour(x.tempo).to_f else 0.0 end %>
+      <tr <% if x.status=="CANCELADA" %> style="color:white; opacity:0.4; background-color:red;" <%end%>>
+        <td style="text-align:center;"> <%= x.nr_os %> </td>
+        <td style="text-align:center;"> <%= x.usuario %> </td>
+        <td style="text-align:center;"> <%=convert_hour(x.tempo) unless x.tempo==nil %> </td>
+        <td style="text-align:center; background-color:"> <%=x.status%> </td>
+        <td style="text-align:center;"> <%=x.atividade%> </td>
+        <td> <%=x.txt_descricao%> </td>
+      </tr>
+<%end%>
+      <tr>
+        <td colspan="2" align="right">
+          <b>Tempo total:</b>
+        </td>
+        <td align="center">
+          <%=soma%>
+        </td>
+        <td colspan="3"></td>
+      </tr>
+ </table>

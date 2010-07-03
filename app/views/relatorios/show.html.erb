@@ -5,7 +5,9 @@
 <table width="100%" border="0">
   <tr>
     <td align="right">
-        <%=image_tag("printer.png")%>
+        <%=link_to image_tag("printer.png"), {:action => "imprimir", :id=>"1", :data_ini=>params[:data_ini],
+:data_fim=>params[:data_fim], :usuario_id=>params[:relatorio][:usuario_id],
+:cliente_id=>params[:relatorio][:cliente_id],:projeto_id=>params[:relatorio][:projeto_id]}, :popup => true %>
     </td>
   </tr>
 </table>
