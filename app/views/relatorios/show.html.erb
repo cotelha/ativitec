@@ -9,7 +9,7 @@
     </td>
   </tr>
 </table>
- <table class="linhasAlternadas">
+<table class="linhasAlternadas">
       <tr>
         <th style="text-align:center; width:50px">ID OS</th>
         <th style="text-align:center; width:120px">Usuário</th>
@@ -18,8 +18,9 @@
         <th style="text-align:center; width:120px">Atividade</th>
         <th>Descrição</th>
       </tr>
-<% @relatorios.each do |x| %>
-      <%# soma = soma + x.tempo %>
+<% soma = 0.0 %>
+<% @relatorios.each do |x| %>      
+      <% soma = soma + if(x.tempo!=nil) then convert_hour(x.tempo).to_f else 0.0 end %>
       <tr <% if x.status=="CANCELADA" %> style="color:white; opacity:0.4; background-color:red;" <%end%>>
         <td style="text-align:center;"> <%= x.nr_os %> </td>
         <td style="text-align:center;"> <%= x.usuario %> </td>
@@ -29,6 +30,15 @@
         <td> <%=x.txt_descricao%> </td>
       </tr>
 <%end%>
+      <tr>
+        <td colspan="2" align="right">
+          <b>Tempo total:</b>
+        </td>
+        <td align="center">
+          <%=soma%>
+        </td>
+        <td colspan="3"></td>
+      </tr>
  </table>
 <%= will_paginate @relatorios, :previous_label => "Anterior", :next_label => "Próximo", :class => "digg_pagination" %>
 <%end%>
