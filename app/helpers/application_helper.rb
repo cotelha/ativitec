@@ -29,7 +29,7 @@ module ApplicationHelper
     segundos = t[2].to_i/60
 
     retorno = ((horas.to_f+minutos.to_f+segundos.to_f)/60)
-    return retorno
+    return sprintf ("%.2f", retorno)
   end
 
 end
