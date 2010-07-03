@@ -43,7 +43,7 @@ class RelatoriosController < ApplicationController
             end
           sql << "group by h.orden_servico_id, os.ind_status, u.login, os.txt_descricao, a.nm_atividade"
     
-    @relatorios = Relatorio.paginate_by_sql(sql, :page=>params[:page], :per_page=>"10", :order => 'os.dt_inicio DESC')
+    @relatorios = Relatorio.paginate_by_sql(sql, :page=>params[:page], :per_page=>"50", :order => 'os.dt_inicio DESC')
     
   end
 
