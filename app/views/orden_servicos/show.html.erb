@@ -32,7 +32,9 @@
 <br><br>
 <% if @atividade.tp_atividade!="E" then %>
   <% if @orden_servico.ind_status!="E" then %>
-    <%= link_to 'Iniciar', {:controller=>"orden_servicos", :action => "iniciar", :id => @orden_servico.id}, :class=>"comment-link", :style=>"PADDING-RIGHT: 10px;", :class=>"linque_editar" %>
+    <% if @orden_servico.user_id==session[:user_id] then %>
+      <%= link_to 'Iniciar', {:controller=>"orden_servicos", :action => "iniciar", :id => @orden_servico.id}, :class=>"comment-link", :style=>"PADDING-RIGHT: 10px;", :class=>"linque_editar" %>
+    <%end%>
   <%end%>
   <%= link_to 'Editar', edit_orden_servico_path(@orden_servico), :onclick=>"Modalbox.show(this.href, {title: 'Ordens de Serviço', width: 600}); return false;", :class=>"linque_editar" %>
 <%end%>

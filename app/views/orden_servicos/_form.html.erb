@@ -41,7 +41,7 @@
     <td><%= f.label :hrs_previsao_termino, "Hrs previsão termino" %></td>
   </tr>
   <tr>
-    <td><%=%><%= select("orden_servico", "user_id", User.all.collect {|p| [ p.login, p.id ] }, {:include_blank => false, :selected=>session[:user_id]}, :style=>"width: 230px;", :disabled=>(controller.action_name=='edit'?true:false)) %></td>
+    <td><%=%><%= select("orden_servico", "user_id", User.all.collect {|p| [ p.login, p.id ] }, {:include_blank => false, :selected=>(if(controller.action_name=='edit') then @orden_servico.user_id else session[:user_id] end)}, :style=>"width: 230px;", :disabled=>(controller.action_name=='edit'?true:false)) %></td>
     <td><%= f.text_field :hrs_previsao_termino, :size=>5 %></td>
   </tr>
 </table>

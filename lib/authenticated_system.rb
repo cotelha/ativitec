@@ -16,6 +16,7 @@ module AuthenticatedSystem
     def current_user=(new_user)
       session[:user_id] = new_user ? new_user.id : nil
       session[:user_tp] = new_user ? new_user.tp_user : nil
+      session[:nome_login] = new_user ? new_user.login : nil
       @current_user = new_user || false
     end
 
